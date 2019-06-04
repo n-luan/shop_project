@@ -1,0 +1,2 @@
+class ProductOrder < ApplicationRecord
+end
