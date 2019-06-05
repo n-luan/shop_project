@@ -10,6 +10,16 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ *= require jquery-ui
+ *= require animate
+ *= require slick
+ *= require chosen.min
+ *= require meanmenu.min
+ *= require style
+ *= require responsive
+ *= require ionicons.min
+ *= require font-awesome
  *= require_self
  */
+@import "bootstrap";
+@import "font-awesome";
