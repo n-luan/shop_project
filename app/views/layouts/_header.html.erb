@@ -65,14 +65,14 @@
         <div class="col-lg-5 col-md-4 col-12 col-sm-4">
           <div class="header-middle-right f-right">
             <div class="header-login">
-              <a href="login-register.html">
+              <%= link_to new_user_session_path do %>
                 <div class="header-icon-style">
                   <i class="icon-user icons"></i>
                 </div>
                 <div class="login-text-content">
                   <p>Register <br> or <span>Sign in</span></p>
                 </div>
-              </a>
+              <% end %>
             </div>
             <div class="header-wishlist">
               <a href="wishlist.html">
