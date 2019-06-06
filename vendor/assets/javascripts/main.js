@@ -23,35 +23,34 @@ $(document).ready(function() {
     });
 
     /* jQuery MeanMenu */
-       $('#mobile-menu-active').meanmenu({
-         meanScreenWidth: "991",
-         meanMenuContainer: ".mobile-menu-area .mobile-menu",
-       });
-
-     /* Slider active */
-     $('.slider-active').owlCarousel({
-       loop: true,
-       nav: true,
-       autoplay: false,
-       autoplayTimeout: 5000,
-       animateOut: 'fadeOut',
-       animateIn: 'fadeIn',
-       navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-       item: 1,
-       responsive: {
-         0: {
-             items: 1
-         },
-         768: {
-             items: 1
-         },
-         1000: {
-             items: 1
-         }
-       }
-     })
+    $('#mobile-menu-active').meanmenu({
+        meanScreenWidth: "991",
+        meanMenuContainer: ".mobile-menu-area .mobile-menu",
+    });
 
 
+    /* Slider active */
+    $('.slider-active').owlCarousel({
+        loop: true,
+        nav: true,
+        autoplay: false,
+        autoplayTimeout: 5000,
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+        item: 1,
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 1
+            },
+            1000: {
+                items: 1
+            }
+        }
+    })
 
     /* Best selling active */
     $('.product-slider-active').owlCarousel({

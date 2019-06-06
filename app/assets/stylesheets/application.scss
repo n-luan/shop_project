@@ -12,14 +12,16 @@
  *
  *= require jquery-ui
  *= require animate
+ *= require owl.carousel.min
  *= require slick
  *= require chosen.min
+ *= require simple-line-icons
+ *= require ionicons.min
  *= require meanmenu.min
  *= require style
  *= require responsive
- *= require ionicons.min
- *= require font-awesome
+ *= require font-awesome.min
  *= require_self
  */
-@import "bootstrap";
-@import "font-awesome";
+ @import "bootstrap";
+ @import "font-awesome";
