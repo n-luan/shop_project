@@ -1,0 +1,15 @@
+.login-form-container input {
+  border: 1px solid #000000;
+}
+.forgot-signup{
+  float: right;
+}
+.login-form-container {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+#error_explanation{
+  color: red;
+}
+#error_explanation > h2{
+  color: red;
+}
