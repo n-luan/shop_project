@@ -1410,7 +1410,7 @@ Background variation set
   z-index: 0;
 }
 .bg-1 {
-  background: url(../../images/bg/1.jpg);
+  background: url("/images/bg/1.jpg");
 }
 .bg-img {
   background-position: center center;

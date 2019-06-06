@@ -9,16 +9,20 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//= require popper
+//= require turbolinks
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap.min
-//= require cable
+//= require modernizr-2.8.3.min
+//= require jquery-1.12.0.min
 //= require ajax-mail
-//= require owl.carousel.min
+//= require popper
+//= require bootstrap.min
 //= require imagesloaded.pkgd.min
 //= require isotope.pkgd.min
+//= require owl.carousel.min
 //= require plugins
 //= require modernizr.min
 //= require activestorage
+//= require bootstrap-sprockets
+//= require cable
 //= require main
