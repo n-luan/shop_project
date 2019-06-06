@@ -45,9 +45,9 @@
       <div class="row">
         <div class="col-lg-3 col-md-4 col-12 col-sm-4">
           <div class="logo">
-            <a href="index.html">
+            <%= link_to root_url do %>
               <%= image_tag "/assets/logo/logo.png" %>
-            </a>
+            <% end %>
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-12 col-sm-4">
@@ -153,50 +153,15 @@
                   </ul>
                 </li>
                 <li><a href="about-us.html">about</a></li>
-                <li class="mega-menu-position top-hover"><a href="shop.html">shop <i class="ion-chevron-down"></i></a>
+                <li class="mega-menu-position top-hover"><a href="">Category<i class="ion-chevron-down"></i></a>
                   <ul class="mega-menu">
                     <li>
                       <ul>
-                        <li class="mega-menu-title"><a href="#">Categories 01</a></li>
-                        <li><a href="shop.html">salad</a></li>
-                        <li><a href="shop.html">sandwich</a></li>
-                        <li><a href="shop.html">bread</a></li>
-                        <li><a href="shop.html">steak</a></li>
-                        <li><a href="shop.html">tuna steak</a></li>
-                        <li><a href="shop.html">spaghetti </a></li>
-                      </ul>
-                    </li>
-                    <li>
-                      <ul>
-                        <li class="mega-menu-title"><a href="#">Categories 02</a></li>
-                        <li><a href="shop.html">rice</a></li>
-                        <li><a href="shop.html">pizza</a></li>
-                        <li><a href="shop.html">hamburger</a></li>
-                        <li><a href="shop.html">eggs</a></li>
-                        <li><a href="shop.html">sausages</a></li>
-                        <li><a href="shop.html">apple juice</a></li>
-                      </ul>
-                    </li>
-                    <li>
-                      <ul>
-                        <li class="mega-menu-title"><a href="#">Categories 03</a></li>
-                        <li><a href="shop.html">milk</a></li>
-                        <li><a href="shop.html">grape juice</a></li>
-                        <li><a href="shop.html">cookie</a></li>
-                        <li><a href="shop.html">candy</a></li>
-                        <li><a href="shop.html">cake</a></li>
-                        <li><a href="shop.html">cupcake</a></li>
-                      </ul>
-                    </li>
-                    <li>
-                      <ul>
-                        <li class="mega-menu-title"><a href="#">Categories 04</a></li>
-                        <li><a href="shop.html">pie</a></li>
-                        <li><a href="shop.html">stoberry</a></li>
-                        <li><a href="shop.html">sandwich</a></li>
-                        <li><a href="shop.html">bread</a></li>
-                        <li><a href="shop.html">steak</a></li>
-                        <li><a href="shop.html">hamburger</a></li>
+                        <% categories.each do |category| %>
+                          <li>
+                            <%= link_to "#{category.name}", category %>
+                          </li>
+                        <% end %>
                       </ul>
                     </li>
                   </ul>
