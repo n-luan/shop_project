@@ -1,0 +1,45 @@
+<div class="breadcrumb-area gray-bg">
+  <div class="container">
+    <div class="breadcrumb-content">
+      <ul>
+        <li><%= link_to "Home", root_url %></li>
+        <li class="active">Category</li>
+        <li class="active"><%= @category.name %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="product-area pt-95 pb-70">
+  <div class="custom-container">
+    <div class="tab-content jump yellow-color">
+      <div class="tab-pane active">
+        <div class="row">
+          <% @category.products.each do |product|%>
+            <div class="custom-col-5">
+              <div class="product-wrapper mb-25">
+                <div class="product-img">
+                  <%= image_tag product.image.presence || "product-details/product-detalis-s4" %>
+                  <div class="product-content">
+                    <h4><%= link_to "#{product.name}", product %></h4>
+                    <div class="product-price-wrapper">
+                      <span>$ <%= product.price %></span>
+                    </div>
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="product-action">
+                    <div class="pro-action-left">
+                      <a title="Add Tto Cart" href="#"><i class="ion-android-cart"></i> Add Tto Cart</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <%= paginate @products, theme: "twitter-bootstrap-4" %>
+      </div>
+    </div>
+  </div>
+</div>

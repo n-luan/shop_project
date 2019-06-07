@@ -8,7 +8,7 @@
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
   </head>
   <body>
-    <%= render "layouts/header" %>
+    <%= render "layouts/header", categories: @categories %>
     <% flash.each do |key, value| %>
       <%= content_tag :div, value, class: "flash #{key}" %>
     <% end %>

@@ -1,0 +1,39 @@
+<div class="product-area pt-95 pb-70">
+  <div class="custom-container">
+    <div class="product-tab-list-wrap text-center mb-40 yellow-color">
+      <div class="product-tab-list nav">
+        <a class="active" href="" data-toggle="tab">
+        </a>
+      </div>
+    </div>
+    <div class="tab-content jump yellow-color">
+      <div class="tab-pane active">
+        <div class="row">
+          <% @products.each do |product| %>
+            <div class="custom-col-5">
+              <div class="product-wrapper mb-25">
+                <div class="product-img">
+                  <%= image_tag product.image.presence || "product-details/product-detalis-s4" %>
+                  <div class="product-action">
+                    <div class="pro-action-left">
+                      <a href="#" title= "Add To Cart" >
+                        <i class="ion-android-cart"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="product-content">
+                    <h4><%= link_to "#{product.name}", product %></h4>
+                    <div class="product-price-wrapper">
+                      <span>$ <%= product.price %></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <%= paginate @products, theme: "twitter-bootstrap-4" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
