@@ -21,8 +21,9 @@ gem "bootstrap", "~> 4.3.1"
 gem "devise"
 gem "kaminari"
 gem "bootstrap4-kaminari-views"
-group :development, :test do
+gem "ransack", github: "activerecord-hackery/ransack"
 
+group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
 end
 
