@@ -22,7 +22,10 @@ namespace :dummy_data do
     50.times do |n|
       name = Faker::Food.sushi
       description = Faker::Food.description
-      Product.create! name: name, description: description
+      sale_price = 80 + n
+      price = 100 + n
+      sale_count= 100 + n
+      Product.create! name: name, description: description, price: price, sale_price: sale_price, sale_count: sale_count
     end
     puts "Data seed completed"
   end

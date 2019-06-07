@@ -1,0 +1,34 @@
+<div class="custom-col-5">
+  <div class="product-wrapper mb-25">
+    <div class="product-img">
+      <%= link_to product do %>
+        <%= image_tag (product.image_url if product.image.presence) || "/assets/product/product-1.jpg" %>
+      <% end %>
+      <div class="product-action">
+        <div class="pro-action-left">
+          <%= link_to "#" do %>
+            <i class="ion-android-cart"></i> Add Tto Cart
+          <% end %>
+        </div>
+        <div class="pro-action-right">
+          <%= link_to "#" do %>
+            <i class="ion-ios-heart-outline"></i>
+          <% end %>
+          <%= link_to quick_views_path(product_id: product.id), remote: true do %>
+            <i class="ion-android-open"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="product-content">
+      <h4>
+        <a href="product-details.html"><%= product.name %> </a>
+      </h4>
+      <div class="product-price-wrapper">
+        <span>$<%= product.sale_price %></span>
+        <span class="product-price-old">$<%= product.price %> </span>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="exampleModal1"></div>
