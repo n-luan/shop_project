@@ -1,0 +1,3 @@
+$("#review-list").html("<%= j render "reviews/review", reviews: @reviews %>")
+$(".rating-review").html("<%= j render "products/rating_view", product: @product, avg_rate: @avg_rate %>")
+$("#review-form").html("<%= j render "reviews/form", product: @product %>")

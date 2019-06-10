@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get "index", to: "home_pages#index"
   get "login", to: "sessions#new"
   resources :categories, only: [:show]
-
+  resources :reviews
 end

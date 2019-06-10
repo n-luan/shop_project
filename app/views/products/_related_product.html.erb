@@ -1,18 +1,16 @@
-<% best_products.each do |product| %>
+<% related_products.each do |product| %>
   <div class="product-wrapper">
     <div class="product-img">
-      <%= link_to product do %>
+      <a href="product-details.html">
         <%= image_tag (product.image_url if product.image.presence) || "/assets/product/product-1.jpg" %>
-      <% end %>
+      </a>
       <div class="product-action">
         <div class="pro-action-left">
           <a title="Add Tto Cart" href="#"><i class="ion-android-cart"></i> Add Tto Cart</a>
         </div>
         <div class="pro-action-right">
           <a title="Wishlist" href="wishlist.html"><i class="ion-ios-heart-outline"></i></a>
-          <%= link_to quick_views_path(product_id: product.id), remote: true do %>
-            <i class="ion-android-open"></i>
-          <% end %>
+          <a title="Quick View" data-toggle="modal" data-target="#exampleModal" href="#"><i class="ion-android-open"></i></a>
         </div>
       </div>
     </div>

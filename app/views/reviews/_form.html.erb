@@ -1,0 +1,29 @@
+<%= form_for Review.new, remote: true do |f| %>
+  <%= f.hidden_field :product_id, value: product.id %>
+  <div class="ratting-form-wrapper">
+    <h3>Add your Comments :</h3>
+    <div class="ratting-form">
+      <div class="stars">
+        <h2>Rating:</h2>
+        <% (1..5).reverse_each do |i| %>
+          <%= f.radio_button :rate, i, class: "star star-#{i}", id: "star-#{i}" %>
+          <label class="star star-<%= i %>" for="star-<%= i %>"></label>
+        <% end %>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="rating-form-style form-submit">
+            <%= f.text_area :content, placeholder: "Message" %>
+            <% if user_signed_in? %>
+              <% if !(current_user.reviews.find_by product_id: product.id) %>
+                <%= f.submit "Add review" %>
+              <% end %>
+            <% else %>
+              <%= f.submit "Log in" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
