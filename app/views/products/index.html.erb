@@ -1,39 +1,44 @@
-<div class="product-area pt-95 pb-70">
-  <div class="custom-container">
-    <div class="product-tab-list-wrap text-center mb-40 yellow-color">
-      <div class="product-tab-list nav">
-        <a class="active" href="" data-toggle="tab">
-        </a>
-      </div>
-    </div>
-    <div class="tab-content jump yellow-color">
-      <div class="tab-pane active">
-        <div class="row">
-          <% @products.each do |product| %>
-            <div class="custom-col-5">
-              <div class="product-wrapper mb-25">
-                <div class="product-img">
-                  <%= image_tag product.image.presence || "product-details/product-detalis-s4" %>
-                  <div class="product-action">
-                    <div class="pro-action-left">
-                      <a href="#" title= "Add To Cart" >
-                        <i class="ion-android-cart"></i>
-                      </a>
-                    </div>
+<div class="custom-container">
+  <div class="tab-content jump">
+    <div id="tab1" class="tab-pane active">
+      <div class="row searches" >
+        <% @results.each do |result| %>
+          <div class="custom-col-5">
+            <div class="product-wrapper mb-25">
+              <div class="product-img">
+                <%= link_to result do %>
+                  <%= image_tag result.image.presence || "product-details/product-detalis-s4" %>
+                <% end %>
+                <div class="product-action">
+                  <div class="pro-action-left">
+                    <%= link_to "#" do %>
+                      <i class="ion-android-cart"></i> Add To Cart
+                    <% end %>
                   </div>
-                  <div class="product-content">
-                    <h4><%= link_to "#{product.name}", product %></h4>
-                    <div class="product-price-wrapper">
-                      <span>$ <%= product.price %></span>
-                    </div>
+                  <div class="pro-action-right">
+                    <%= link_to "#" do %>
+                      <i class="ion-ios-heart-outline"></i>
+                    <% end %>
+                    <%= link_to quick_views_path(product_id: result.id), remote: true do %>
+                      <i class="ion-android-open"></i>
+                    <% end %>
                   </div>
                 </div>
               </div>
+              <div class="product-content">
+                <h4>
+                  <%= link_to "#{result.name}", result %>
+                </h4>
+                <div class="product-price-wrapper">
+                  <span>$ <%= result.price %></span>
+                </div>
+              </div>
             </div>
-          <% end %>
-          <%= paginate @products, theme: "twitter-bootstrap-4" %>
-        </div>
+          </div>
+        <% end %>
+        <%= paginate @results, theme: "twitter-bootstrap-4" %>
       </div>
     </div>
   </div>
 </div>
+<div id="exampleModal1"></div>

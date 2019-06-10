@@ -7,7 +7,7 @@
       <div class="product-action">
         <div class="pro-action-left">
           <%= link_to "#" do %>
-            <i class="ion-android-cart"></i> Add Tto Cart
+            <i class="ion-android-cart"></i> Add To Cart
           <% end %>
         </div>
         <div class="pro-action-right">
@@ -22,11 +22,10 @@
     </div>
     <div class="product-content">
       <h4>
-        <a href="product-details.html"><%= product.name %> </a>
+        <%= link_to "#{product.name}", product %>
       </h4>
       <div class="product-price-wrapper">
-        <span>$<%= product.sale_price %></span>
-        <span class="product-price-old">$<%= product.price %> </span>
+        <span>$ <%= product.price %></span>
       </div>
     </div>
   </div>

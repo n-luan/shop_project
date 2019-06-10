@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_categories
+
   def after_sign_in_path_for(resource)
     stored_location_for(resource) || index_path
   end
@@ -21,5 +22,4 @@ class ApplicationController < ActionController::Base
   def set_categories
     @categories = Category.all
   end
-
 end

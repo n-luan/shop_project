@@ -1,0 +1,8 @@
+<%= search_form_for Product.search(params[:q]), as: :q, url: products_path, method: :get do |f| %>
+  <div class="input-group-search">
+    <%= f.search_field :name_cont, class: "form-control", placeholder: "Search Products", class: "search-index" %>
+  </div>
+  <div class="input-group-append">
+    <%= f.submit "Search", class: "btn search-button-index"  %>
+  </div>
+<% end %>
