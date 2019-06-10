@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShopProject</title>
+  <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <%= stylesheet_link_tag "admin/application", media: "all", "data-turbolinks-track": "reload" %>
+</head>
+<body>
+  <div class="wrapper">
+    <%= render "layouts/admin/sidebar" %>
+    <div class="main-panel">
+      <%= render "layouts/admin/header" %>
+      <div class="messager">
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
+      </div>
+      <%= yield %>
+      <%= render "layouts/admin/footer" %>
+    </div>
+  </div>
+</body>
+<%= javascript_include_tag "admin/application", "data-turbolinks-track": "reload" %>
+</html>
