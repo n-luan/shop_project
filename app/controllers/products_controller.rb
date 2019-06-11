@@ -10,6 +10,9 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params[:id]
+    @related_products = Product.best_product.limit(5)
+    @reviews = @product.reviews.page(params[:page]).per(10)
+    @avg_rate = @product.reviews.average(:rate)&.round(2) || 0
   end
 
 end

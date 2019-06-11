@@ -1,0 +1,18 @@
+<% reviews.each do |review| %>
+  <div class="sin-rattings">
+    <div class="star-author-all">
+      <div class="ratting-star f-left">
+        <% (1..review.rate).each do |i| %>
+          <i class="ion-star theme-color"></i>
+        <% end %>
+        <span>(<%= review.rate %>)</span>
+      </div>
+      <div class="ratting-author f-right">
+        <h3><%= review.user.name %></h3>
+        <span><%= review.created_at.strftime("%H:%M") %></span>
+        <span><%= review.created_at.strftime("%d/%m/%Y") %></span>
+      </div>
+    </div>
+    <p><%= review.content %></p>
+  </div>
+<% end %>

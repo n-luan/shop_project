@@ -1,0 +1,13 @@
+<div class="pro-dec-rating">
+  <% avg_rate.to_i.times do %>
+    <i class="ion-android-star theme-star"></i>
+  <% end %>
+  <% ((avg_rate % 1) > 0.5 ? 1:0).times do %>
+    <i class="ion-android-star-half theme-star"></i>
+  <% end %>
+</div>
+<div class="pro-dec-review">
+  <ul>
+    <li><%= product.reviews.count %> Reviews</li>
+  </ul>
+</div>

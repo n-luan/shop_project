@@ -3,12 +3,9 @@ class ApplicationController < ActionController::Base
   before_action :set_categories
 
   def after_sign_in_path_for(resource)
-    stored_location_for(resource) || index_path
+    session[:forwarding_url] || stored_location_for(resource) || index_path
   end
 
-  def after_sign_out_path_for(resource)
-    stored_location_for(resource) || index_path
-  end
   def after_sign_out_path_for(resource)
     stored_location_for(resource) || index_path
   end
