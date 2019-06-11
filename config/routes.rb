@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   get "login", to: "sessions#new"
   resources :categories, only: [:show]
   resources :reviews
+  namespace :admin do
+    root "dashboard#index"
+  end
 end
