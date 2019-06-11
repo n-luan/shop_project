@@ -88,54 +88,7 @@
               </a>
             </div>
             <div class="header-cart">
-              <a href="#">
-                <div class="header-icon-style">
-                  <i class="icon-handbag icons"></i>
-                  <span class="count-style">02</span>
-                </div>
-                <div class="cart-text">
-                  <span class="digit">My Cart</span>
-                  <span class="cart-digit-bold">$209.00</span>
-                </div>
-              </a>
-              <div class="shopping-cart-content">
-                <ul>
-                  <li class="single-shopping-cart">
-                    <div class="shopping-cart-img">
-                      <a href="#"><%= image_tag "/assets/cart/cart-1.jpg" %></a>
-                    </div>
-                    <div class="shopping-cart-title">
-                      <h4><a href="#">Phantom Remote </a></h4>
-                      <h6>Qty: 02</h6>
-                      <span>$260.00</span>
-                    </div>
-                    <div class="shopping-cart-delete">
-                      <a href="#"><i class="ion ion-close"></i></a>
-                    </div>
-                  </li>
-                  <li class="single-shopping-cart">
-                    <div class="shopping-cart-img">
-                      <a href="#"><%= image_tag "/assets/cart/cart-1.jpg" %></a>
-                    </div>
-                    <div class="shopping-cart-title">
-                      <h4><a href="#">Phantom Remote</a></h4>
-                      <h6>Qty: 02</h6>
-                      <span>$260.00</span>
-                    </div>
-                    <div class="shopping-cart-delete">
-                      <a href="#"><i class="ion ion-close"></i></a>
-                    </div>
-                  </li>
-                </ul>
-                <div class="shopping-cart-total">
-                  <h4>Shipping : <span>$20.00</span></h4>
-                  <h4>Total : <span class="shop-total">$260.00</span></h4>
-                </div>
-                <div class="shopping-cart-btn">
-                  <a href="cart-page.html">view cart</a>
-                  <a href="checkout.html">checkout</a>
-                </div>
-              </div>
+              <%= render "product_orders/header_cart" %>
             </div>
           </div>
         </div>
