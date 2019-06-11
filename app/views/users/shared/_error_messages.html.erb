@@ -1,13 +1,12 @@
-<% if resource.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= I18n.t("errors.messages.not_saved", count: resource.errors.count,
-      resource: resource.class.model_name.human.downcase)%>
-    </h2>
-    <ul>
-      <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
+<% if object.errors.any? %>
+  <% object.errors.full_messages.each do |message| %>
+    <script type="text/javascript">
+      toastr.error("<%= message %>")
+    </script>
+  <% end %>
+  <script type="text/javascript">
+    toastr.error("<%= I18n.t("errors.messages.not_saved",
+      count: object.errors.count,
+      resource: object.class.model_name.human.downcase)%>")
+  </script>
 <% end %>

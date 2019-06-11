@@ -1,0 +1,94 @@
+<div class="breadcrumb-area gray-bg">
+  <div class="container">
+    <div class="breadcrumb-content">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="active">Profile</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<section class="home_banner_area">
+  <div class="container box_1620">
+    <div class="banner_inner d-flex align-items-center">
+      <div class="banner_content">
+        <div class="media">
+          <div class="d-flex">
+            <%= image_tag (@profile.avatar.url if
+            @profile.avatar.url.presence) || "/assets/profile/default.jpg",
+            :class => "full_avatar"%>
+          </div>
+          <div class="media-body">
+            <div class="personal_text">
+              <h6>Hello</h6>
+              <hr>
+              <h3><%= current_user.name %></h3>
+              <h4>Membership vip</h4>
+              <p>Welcome to
+                <strong>
+                  <span style="color: black ">Fu</span><span style="color:
+                  red">dink</span>
+                </strong> - Think different
+              </p><hr>
+              <ul class="list basic_info">
+                <li><a><i class="fa fa-calendar"></i>
+                  <%=current_user.created_at.strftime("%M - %d - %Y") %></a></li>
+                <li><a><i class="fa fa-phone-square"></i>
+                  <% if current_user.profile.phone? %>
+                    <%= current_user.profile.phone %>
+                  <% else %>
+                    <%= p ""%>
+                  <% end %></a></li>
+                <li><a><i class="fa fa-envelope"></i>
+                  <% if current_user.email? %>
+                    <%= current_user.email %>
+                  <% else %>
+                    <%= p ""%>
+                  <% end %>
+                </a></li>
+                <li><a><i class="fa fa-home"></i>
+                  <% if current_user.profile.address? %>
+                    <%= current_user.profile.address %>
+                  <% else %>
+                    <%= p ""%>
+                  <% end %>
+                </a></li>
+              </ul>
+              <ul class="list personal_social">
+                <li>
+                  <%= link_to @profile.facebook, target: "blank" do %>
+                    <i class="fa fa-facebook"></i>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to @profile.twitter, target: "blank" do %>
+                    <i class="fa fa-twitter"></i>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to @profile.instagram, target: "blank" do %>
+                    <i class="fa fa-linkedin"></i>
+                  <% end %>
+                </li>
+              </ul><hr>
+              <ul class="change_profile">
+                Click
+                <%= link_to "Here", edit_users_profile_path(current_user) %>
+                to change profile
+                <i class="fa fa-smile-o" aria-hidden="true"></i>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="foo">
+          <span class="letter" data-letter="F" style="color: black" >F</span>
+          <span class="letter" data-letter="U" style="color: black" >U</span>
+          <span class="letter" data-letter="D" style="color: red" >D</span>
+          <span class="letter" data-letter="I" style="color: red" >I</span>
+          <span class="letter" data-letter="N" style="color: red" >N</span>
+          <span class="letter" data-letter="K" style="color: red" >K</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

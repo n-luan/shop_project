@@ -1820,7 +1820,7 @@ Background variation set
 .main-menu ul li {
   display: inline-block;
   list-style: outside none none;
-  padding-right: 43px;
+  padding-right: 65px;
   position: relative;
 }
 .main-menu nav > ul > li:last-child {
