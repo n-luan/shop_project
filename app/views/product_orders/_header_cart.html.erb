@@ -36,7 +36,7 @@
     <h4>Total : <span class="shop-total">$ <%= current_order.subtotal %></span></h4>
   </div>
   <div class="shopping-cart-btn">
-    <a href="cart-page.html">view cart</a>
+    <%= link_to "view cart", order_path(current_order) %>
     <a href="checkout.html">checkout</a>
   </div>
 </div>

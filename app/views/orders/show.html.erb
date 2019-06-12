@@ -1,0 +1,52 @@
+<div class="breadcrumb-area gray-bg">
+  <div class="container">
+    <div class="breadcrumb-content">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="active">Cart </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- shopping-cart-area start -->
+<div class="cart-main-area pt-95 pb-100">
+  <div class="container">
+    <h3 class="page-title">Your cart items</h3>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+        <form action="#">
+          <div class="table-content table-responsive">
+            <table class="col-md-12">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Product Name</th>
+                  <th>Until Price</th>
+                  <th>Qty</th>
+                  <th>Subtotal</th>
+                  <th>action</th>
+                </tr>
+              </thead>
+              <tbody id="cart-item">
+                <%= render "orders/cart_item", product_orders: @product_orders %>
+              </tbody>
+            </table>
+          </div>
+        </form>
+        <div class="row">
+          <div class="col-lg-4 offset-md-8">
+            <div class="grand-totall">
+              <div class="title-wrap">
+                <h4 class="cart-bottom-title section-bg-gary-cart">Cart Total</h4>
+              </div>
+              <div class="total-shipping">
+                <%= render "orders/total_shipping" %>
+              </div>
+              <a href="#">Proceed to Checkout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
