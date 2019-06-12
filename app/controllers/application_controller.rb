@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include SessionsHelper
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_categories
   helper_method :current_order

@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   namespace :users do
       resources :profiles, only: [:show, :edit, :update]
   end
-  namespace :admin do
+  namespace :admins do
     root "dashboard#index"
+    resources :sessions, only: [:new, :create, :destroy]
   end
 
   resource :quick_views
