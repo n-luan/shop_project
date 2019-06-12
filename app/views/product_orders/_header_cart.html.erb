@@ -1,0 +1,42 @@
+<%= link_to "", class: "cart-btn" do %>
+  <div class="header-icon-style">
+    <i class="icon-handbag icons"></i>
+    <span class="count-style"><%= current_order.total_quantity %></span>
+  </div>
+  <div class="cart-text">
+    <span class="digit">My Cart</span>
+    <span class="cart-digit-bold">$ <%= current_order.subtotal %></span>
+  </div>
+<% end %>
+<div class="shopping-cart-content">
+  <ul>
+    <li class="single-shopping-cart">
+      <% current_order.product_orders.each do |product_order| %>
+        <li>
+          <div class="shopping-cart-img">
+            <%= link_to product_path(product_order.product_id) do %>
+              <%= image_tag "/assets/cart/cart-1.jpg" %>
+            <% end %>
+          </div>
+          <div class="shopping-cart-title">
+            <h4><%= link_to truncate(product_order.product.name, :length => 17) ,product_order.product %></h4>
+            <h6>Qty: <%= product_order.quantity %></h6>
+            <span>$ <%= product_order.product.price %></span>
+          </div>
+          <div class="shopping-cart-delete">
+            <%= link_to product_order, method: :delete, remote: true do %>
+              <i class="ion ion-close"></i>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </li>
+  </ul>
+  <div class="shopping-cart-total">
+    <h4>Total : <span class="shop-total">$ <%= current_order.subtotal %></span></h4>
+  </div>
+  <div class="shopping-cart-btn">
+    <a href="cart-page.html">view cart</a>
+    <a href="checkout.html">checkout</a>
+  </div>
+</div>

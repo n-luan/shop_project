@@ -2,7 +2,7 @@ $(document).ready(function() {
     'use strict';
 
     /* Cart Currency Search toggle active */
-    $(".header-cart a").on("click", function(e) {
+    $(document).on("click",".header-cart .cart-btn",function(e) {
         e.preventDefault();
         $(this).parent().find('.shopping-cart-content').slideToggle('medium');
     })

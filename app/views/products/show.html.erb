@@ -29,16 +29,20 @@
             <p>Available: <span><%= @product.sale_count %></span></p>
           </div>
           <div class="pro-details-cart-wrap">
-            <div class="shop-list-cart-wishlist">
-              <a title="Add To Cart" href="#">
-                <i class="ion-android-cart"></i>
-              </a>
-            </div>
-            <div class="product-quantity">
-              <div class="cart-plus-minus">
-                <input class="cart-plus-minus-box" type="text" name="qtybutton" value="2">
+            <%= form_for current_order.product_orders.build, remote: true do |f| %>
+              <%= f.hidden_field :product_id, value: @product.id %>
+              <div class="shop-list-cart-wishlist">
+                <%= link_to "#", class: "submit-cart" do %>
+                  <i class="ion-android-cart"></i>
+                <% end %>
+                <%= f.submit "submit", style: "display: none" %>
               </div>
-            </div>
+              <div class="product-quantity">
+                <div class="cart-plus-minus">
+                  <%= f.telephone_field :quantity, value: 1, class: "cart-plus-minus-box", min: 1 %>
+                </div>
+              </div>
+            <% end %>
           </div>
           <div class="pro-dec-categories">
             <ul>

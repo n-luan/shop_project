@@ -25,5 +25,6 @@
 //= require activestorage
 //= require bootstrap-sprockets
 //= require cable
+//= require cart
 //= require main
 //= require toastr

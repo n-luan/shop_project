@@ -6,10 +6,12 @@
       <% end %>
       <div class="product-action">
         <div class="pro-action-left">
-          <a title="Add Tto Cart" href="#"><i class="ion-android-cart"></i> Add Tto Cart</a>
+          <%= render "products/product_order_form", product: product %>
         </div>
         <div class="pro-action-right">
-          <a title="Wishlist" href="wishlist.html"><i class="ion-ios-heart-outline"></i></a>
+          <%= link_to "#" do %>
+            <i class="ion-ios-heart-outline"></i>
+          <% end %>
           <%= link_to quick_views_path(product_id: product.id), remote: true do %>
             <i class="ion-android-open"></i>
           <% end %>

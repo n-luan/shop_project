@@ -6,9 +6,7 @@
       <% end %>
       <div class="product-action">
         <div class="pro-action-left">
-          <%= link_to "#" do %>
-            <i class="ion-android-cart"></i> Add To Cart
-          <% end %>
+          <%= render "products/product_order_form", product: product %>
         </div>
         <div class="pro-action-right">
           <%= link_to "#" do %>
