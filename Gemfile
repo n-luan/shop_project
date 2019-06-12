@@ -2,7 +2,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.5.1"
-
+gem "carrierwave"
 gem "rails", "~> 5.2.3"
 gem "mysql2", ">= 0.4.4", "< 0.6.0"
 gem "puma", "~> 3.11"
@@ -22,7 +22,7 @@ gem "devise"
 gem "kaminari"
 gem "bootstrap4-kaminari-views"
 gem "ransack", github: "activerecord-hackery/ransack"
-
+gem "toastr-rails"
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
 end

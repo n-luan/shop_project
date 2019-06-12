@@ -3,17 +3,17 @@ class ApplicationController < ActionController::Base
   before_action :set_categories
 
   def after_sign_in_path_for(resource)
-    session[:forwarding_url] || stored_location_for(resource) || index_path
+    session[:forwarding_url] || stored_location_for(resource) || root_path
   end
 
   def after_sign_out_path_for(resource)
-    stored_location_for(resource) || index_path
+    stored_location_for(resource) || root_path
   end
 
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :email, :password)}
+      devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :email, :password)}
   end
 
   def set_categories

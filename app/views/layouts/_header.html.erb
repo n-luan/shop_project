@@ -2,11 +2,7 @@
   <div class="header-top black-bg">
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 col-md-4 col-12 col-sm-4">
-          <div class="welcome-area">
-          </div>
-        </div>
-        <div class="col-lg-8 col-md-8 col-12 col-sm-8">
+        <div class="col-lg-12 col-md-12 col-12">
           <div class="account-curr-lang-wrap f-right">
             <ul>
               <li class="top-hover"><a href="#">Language: (ENG) <i class="ion-chevron-down"></i></a>
@@ -57,12 +53,27 @@
         <div class="col-lg-5 col-md-4 col-12 col-sm-4">
           <div class="header-middle-right f-right">
             <div class="header-login">
-              <%= link_to new_user_session_path do %>
+              <% if user_signed_in? %>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <div class="header-icon-style">
+                    <i class="icon-user icons"></i>
+                  </div>
+                  <div class="login-text-content">
+                    <p>Hi <%= current_user.name.to_s.split(" ")[-1]  %> <br>
+                      <span>Logout</span></p>
+                  </div>
+                <% end %>
+              <% else %>
                 <div class="header-icon-style">
                   <i class="icon-user icons"></i>
                 </div>
                 <div class="login-text-content">
-                  <p>Register <br> or <span>Sign in</span></p>
+                  <p>
+                    <%= link_to new_user_registration_path do %><span>Register</span><% end %>
+                    <br> or
+                    <%= link_to new_user_session_path do %><span>Login</span>
+                    <% end %>
+                  </p>
                 </div>
               <% end %>
             </div>
@@ -189,7 +200,6 @@
       </div>
     </div>
   </div>
-  <!-- mobile-menu-area-start -->
   <div class="mobile-menu-area">
     <div class="container">
       <div class="row">
@@ -280,5 +290,4 @@
       </div>
     </div>
   </div>
-  <!-- mobile-menu-area-end -->
 </header>

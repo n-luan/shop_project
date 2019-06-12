@@ -26,3 +26,4 @@
 //= require bootstrap-sprockets
 //= require cable
 //= require main
+//= require toastr

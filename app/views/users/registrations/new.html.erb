@@ -1,14 +1,4 @@
-<div class="breadcrumb-area gray-bg">
-  <div class="container">
-    <div class="breadcrumb-content">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li class="active">Register</li>
-      </ul>
-    </div>
-  </div>
-</div>
-<div class="login-register-area pt-95 pb-100">
+<div class="login-register-area pt-50 pb-100">
   <div class="container">
     <div class="row">
       <div class="col-lg-7 col-md-12 ml-auto mr-auto">
@@ -21,7 +11,7 @@
               <div class="login-register-form">
                 <%= form_for(resource, as: resource_name,
                 url: registration_path(resource_name)) do |f| %>
-                  <%= render "devise/shared/error_messages",
+                  <%= render "users/shared/error_messages",
                   resource: resource %>
                   <div class="field">
                     <%= f.label :name %><br />
@@ -35,11 +25,9 @@
                   </div>
                   <div class="field">
                     <%= f.label :password %>
-                    <% if @minimum_password_length %>
-                    <em>
-                      (<%= @minimum_password_length %> characters minimum)
-                    </em>
-                    <% end %><br />
+                      <em style="color: white">
+                        (<%= @minimum_password_length %> characters minimum)
+                      </em><br />
                     <%= f.password_field :password,
                     autocomplete: "new-password" %>
                   </div>
@@ -51,7 +39,7 @@
                   <div class="button-box">
                       <%= f.button :submit %>
                     <div style="float: right;">
-                      <span>I already have an account</span>
+                      <span style="color: white">I already have an account</span>
                       <%= render "users/shared/links" %>
                     </div>
                   </div>
