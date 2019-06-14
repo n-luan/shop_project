@@ -1,0 +1,79 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title"><b>Product Management</b></h4>
+    <br>
+    <span>
+      <%= link_to "Add Product", new_manager_product_url, remote: true,
+        class: "btn btn-primary btn-sm" %>
+    </span>
+    <br>
+    <br>
+    <div class="table-responsive">
+      <div id="zero_config_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+        <div class="row">
+          <div class="col-sm-12">
+            <table id="zero_config" class="table table-striped table-bordered dataTable" role="grid" aria-describedby="zero_config_info">
+              <thead>
+                <tr role="row">
+                  <th class="sorting_asc" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 100px;">
+                    Image
+                  </th>
+                  <th class="sorting_asc" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 80px;">
+                    Name
+                  </th>
+                  <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 80px;">
+                    Price
+                  </th>
+                  <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 80px;">
+                    Sale Price
+                  </th>
+                  <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 120px;">
+                    Description
+                  </th>
+                  <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 60px;">
+                    Category
+                  </th>
+                  <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 80px;">
+                    Time
+                  </th>
+                  <th style="width: 30px;"></th>
+                </tr>
+              </thead>
+              <tbody id="table_product">
+                <%= render "manager/products/product", products: @products %>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th rowspan="1" colspan="1">
+                    Image
+                  </th>
+                  <th rowspan="1" colspan="1">
+                    Name
+                  </th>
+                  <th rowspan="1" colspan="1">
+                    Price
+                  </th>
+                  <th rowspan="1" colspan="1">
+                    Sale Price
+                  </th>
+                  <th rowspan="1" colspan="1">
+                    Description
+                  </th>
+                  <th rowspan="1" colspan="1">
+                    Category
+                  </th>
+                  <th rowspan="1" colspan="1">
+                    Time
+                  </th>
+                  <th rowspan="1" colspan="1"></th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="myModal1"></div>
+<div id="myModal2"></div>

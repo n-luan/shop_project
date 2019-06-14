@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   namespace :manager do
     root "dashboard#index"
     resources :category
+    resources :products
   end
 
   devise_for :admins, controllers: {

@@ -13,7 +13,7 @@
     <div class="row">
       <div class="col-lg-6 col-md-12">
         <div class="product-details-img">
-          <%= image_tag @product.image.presence || "product-details/product-detalis-s4", class: "zoompro"%>
+          <%= image_tag @product.image_url(:thumb_large) || "product-details/product-detalis-s4", class: "zoompro"%>
         </div>
       </div>
       <div class="col-lg-6 col-md-12">
@@ -24,12 +24,12 @@
           <div class="rating-review">
             <%= render "products/rating_view", product: @product, avg_rate: @avg_rate %>
           </div>
-          <span>$<%= @product.price %></span>
+          <span><%= number_to_currency(@product.sale_price) %></span>
           <div class="in-stock">
             <p>Available: <span><%= @product.sale_count %></span></p>
           </div>
           <div class="pro-details-cart-wrap">
-            <%= form_for current_order.product_orders.build, remote: true do |f| %>
+            <%= form_for ProductOrder.new, remote: true do |f| %>
               <%= f.hidden_field :product_id, value: @product.id %>
               <div class="shop-list-cart-wishlist">
                 <%= link_to "#", class: "submit-cart" do %>

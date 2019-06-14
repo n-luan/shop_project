@@ -5,7 +5,7 @@ class Order < ApplicationRecord
   before_save :update_subtotal
 
   def subtotal
-    product_orders.collect { |po| po.valid? ? (po.quantity*po.product.sale_price) : 0 }.sum
+    product_orders.collect { |po| po.valid? ? (po.quantity*(po.product.sale_price || po.product.price)) : 0 }.sum
   end
 
   def total_quantity

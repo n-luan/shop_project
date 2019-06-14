@@ -1,9 +1,9 @@
 <div class="sidebar" data-image="../assets/admin/sidebar-4.jpg" data-color="purple">
   <div class="sidebar-wrapper">
     <div class="logo">
-      <a href="http://www.creative-tim.com" class="simple-text">
+      <%= link_to manager_root_path, class: "simple-text" do  %>
         Shop Project
-      </a>
+      <% end %>
     </div>
     <ul class="nav">
       <li class="nav-item active">
@@ -19,10 +19,10 @@
         </a>
       </li>
       <li>
-        <a class="nav-link" href="./table.html">
+        <%= link_to manager_products_path, class: "nav-link" do %>
           <i class="nc-icon nc-notes"></i>
-          <p>Table List</p>
-        </a>
+          <p>Product</p>
+        <% end %>
       </li>
       <li>
         <a class="nav-link" href="#">

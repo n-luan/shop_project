@@ -1,0 +1,39 @@
+<% products.reverse.each do |product| %>
+  <tr role="row" class="odd">
+    <td style="text-align: center;">
+      <%= image_tag product.image_url(:thumb) || "product-details/product-detalis-s4" %>
+    </td>
+    <td class="sorting_1"style="text-align: center;">
+      <%= product.name %>
+    </td>
+    <td>
+      <p style="text-align: center;">
+        <%= number_to_currency(product.price)%>
+      </p>
+    </td>
+    <td>
+      <p style="text-align: center;">
+        <%= number_to_currency(product.sale_price)%>
+      </p>
+    </td>
+    <td>
+      <p><%= truncate(product.description, :length => 120) %></p>
+    </td>
+    <td>
+      <% product.categories.each do |categories|%>
+        <li style= "list-style-type: none;">
+          <%= link_to categories.name, categories %>
+        </li>
+      <% end %>
+    </td>
+    <td>
+      <%= product.created_at.strftime("%d/%m/%Y") %>
+    </td>
+    <td>
+      <%= link_to "Edit", edit_manager_product_path(product),{:remote => true, "data-toggle" =>  "modal", "data-target" => "#myModal#{product.id}",
+        class: "btn btn-primary btn-sm buton" } %>
+      &nbsp;&nbsp;&nbsp;
+      <%= link_to "Delete", manager_product_path(product), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-warning btn-sm buton", remote: true %>
+    </td>
+  </tr>
+<% end %>

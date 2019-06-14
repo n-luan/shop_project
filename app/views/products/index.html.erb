@@ -30,7 +30,7 @@
                   <%= link_to "#{result.name}", result %>
                 </h4>
                 <div class="product-price-wrapper">
-                  <span>$ <%= result.price %></span>
+                  <span><%= number_to_currency(result.price) %></span>
                 </div>
               </div>
             </div>
