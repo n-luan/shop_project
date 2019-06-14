@@ -21,5 +21,5 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
   resources :reviews
   resources :product_orders, only: [:create, :destroy]
-
+  resources :orders
 end

@@ -1,7 +1,12 @@
 class ApplicationController < ActionController::Base
+  include SessionsHelper
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_categories
   helper_method :current_order
+
+  def current_order
+    session[:order_id].present? ? Order.find(session[:order_id]) : Order.new
+  end
 
   def after_sign_in_path_for(resource)
     session[:forwarding_url] || stored_location_for(resource) || root_path

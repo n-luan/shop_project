@@ -1,0 +1,3 @@
+$("#cart-item").html("<%= j render "orders/cart_item", product_orders: @product_orders %>")
+$(".total-shipping").html("<%= j render "orders/total_shipping" %>")
+$(".header-cart").html("<%= j render 'product_orders/header_cart' %>");

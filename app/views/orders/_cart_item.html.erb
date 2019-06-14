@@ -1,0 +1,28 @@
+<% product_orders.each do |product_order| %>
+  <tr>
+    <td class="product-thumbnail">
+      <%= link_to product_order.product do %>
+        <%= image_tag (product_order.product.image_url if product_order.product.image.presence) || "/assets/cart/cart-1.jpg" %>
+      <% end %>
+    </td>
+    <td class="product-name"><a href="#"><%= product_order.product.name %> </a></td>
+    <td class="product-price-cart"><span class="amount">$<%= product_order.product.sale_price %></span></td>
+    <td class="product-quantity">
+      <div class="cart-plus-minus">
+        <div class="dec qtybutton">
+          <%= link_to "-", order_path(product_order, type: "dec"), method: :patch, remote: true %>
+        </div>
+          <input class="cart-plus-minus-box" type="text" name="qtybutton" value="<%= product_order.quantity %>">
+        <div class="inc qtybutton">
+          <%= link_to "+", order_path(product_order, type: "inc"), method: :patch, remote: true %>
+        </div>
+      </div>
+    </td>
+    <td class="product-subtotal">$<%= product_order.quantity*product_order.product.sale_price %></td>
+    <td class="product-remove">
+      <%= link_to order_path(product_order), method: :delete, data: {confirm: "Delete?"}, remote: true do %>
+        <i class="fa fa-times"></i>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
