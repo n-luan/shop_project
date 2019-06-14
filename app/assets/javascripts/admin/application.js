@@ -9,6 +9,8 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
+//= require jquery
+//= require jquery_ujs
 //= require admin/jquery.3.2.1.min
 //= require admin/popper.min
 //= require admin/bootstrap.min
