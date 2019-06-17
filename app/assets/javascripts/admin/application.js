@@ -26,9 +26,18 @@
 //= require admin/jquery.multicheck
 //= require admin/datatable-checkbox-init
 //= require toastr
+
 $(document).ready(function() {
-    $('#category-table').DataTable();
+    initDataTable();
 } );
+
 $(document).ready(function() {
   $('#zero_config').DataTable();
 } );
+
+function initDataTable(){
+ $('#category-table').DataTable({
+    "order": []
+  });
+}
+

@@ -11,7 +11,7 @@
               <div class="login-register-form">
                 <%= form_for(resource, as: resource_name,
                 url: registration_path(resource_name)) do |f| %>
-                  <%= render "users/shared/error_messages",
+                  <%= render "shared/error_messages",
                   object: f.object %>
                   <div class="field">
                     <%= f.label :name %><br />

@@ -10,7 +10,8 @@
       <% end %>
     </td>
     <td class="text-center">
-      <%= link_to manager_category_path(category), method: :delete, data: {confirm: "Delete?"}, remote: true do %>
+      <%= link_to manager_category_path(category), method: :delete,
+      data: {confirm: "Delete?"}, remote: true do %>
         <%= button_tag "Delete", class: "btn btn-primary" %>
       <% end %>
       </td>

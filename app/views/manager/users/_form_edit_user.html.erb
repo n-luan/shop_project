@@ -1,0 +1,28 @@
+ <%= form_for @user, url:  manager_user_path, remote: true do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <div class="form-group">
+      <%= f.label :name, "Name:", class: "col-form-label" %>
+      <%= f.text_field :name, class: "form-control", id: "recipient-name" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email, "Email:", class: "col-form-label" %>
+      <%= f.text_field :email, class: "form-control", id: "recipient-name" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password, "Password:", class: "col-form-label" %>
+      <%= f.password_field :password, class: "form-control",
+      id: "recipient-name" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation, "Password confirmation:",
+      class: "col-form-label" %>
+      <%= f.password_field :password_confirmation, class: "form-control",
+      id: "recipient-name" %>
+    </div>
+  <div class="modal-footer">
+    <%= button_tag "Close", class: "btn btn-secondary",
+    "data-dismiss": "modal" %>
+    <%= f.submit "Submit", class: "btn btn-primary", name: "function",
+    value: "update" %>
+  </div>
+<% end %>

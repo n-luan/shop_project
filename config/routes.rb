@@ -4,10 +4,10 @@ Rails.application.routes.draw do
 
   devise_for :users, skip: :all
     as :user do
-      get "/login" => "devise/sessions#new", :as => :new_user_session
-      post "/login" => "devise/sessions#create", :as => :user_session
-      delete "/logout" => "devise/sessions#destroy", :as => :destroy_user_session
-      get "/register" => "devise/registrations#new", :as => :new_user_registration
+      get "/login" => "users/sessions#new", :as => :new_user_session
+      post "/login" => "users/sessions#create", :as => :user_session
+      delete "/logout" => "users/sessions#destroy", :as => :destroy_user_session
+      get "/register" => "users/registrations#new", :as => :new_user_registration
       post "/register" => "users/registrations#create", :as => :user_registration
     end
 
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     root "dashboard#index"
     resources :category
     resources :products
+    resources :users
   end
 
   devise_for :admins, controllers: {
@@ -31,4 +32,5 @@ Rails.application.routes.draw do
   resources :reviews
   resources :product_orders, only: [:create, :destroy]
   resources :orders
+  resources :checkouts
 end

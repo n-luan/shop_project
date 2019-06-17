@@ -5,6 +5,7 @@ namespace :dummy_data do
     Rake::Task["dummy_data:create_category"].invoke
     Rake::Task["dummy_data:create_product"].invoke
     Rake::Task["dummy_data:create_product_category"].invoke
+    Rake::Task["dummy_data:create_admin"].invoke
 
     puts "Create dummy data successfully"
   end
@@ -37,5 +38,14 @@ namespace :dummy_data do
       ProductCategory.create! product: product, category: category
     end
     puts "Data seed completed!"
+  end
+
+  task create_admin: :environment do
+    1.times do |n|
+      email = "duongtvph04550@gmail.com"
+      password = "admin123"
+      Admin.create! email: email, password: password
+    end
+    puts "Created Admin success"
   end
 end
