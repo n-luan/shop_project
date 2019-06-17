@@ -5,10 +5,11 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   validates :name, presence: true
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :lockable
   has_many :reviews, dependent: :destroy
   has_many :orders
   has_many :notifications
+
   scope :group_by_type, -> (type) {
      case type
      when "day"
@@ -48,6 +49,14 @@ class User < ApplicationRecord
       title = "Monthly"
       data << {"date" => date, "user" => user, "max" => max, "title" => title}
     end
+  end
+
+  def lock_user
+    update locked_at: Time.zone.now
+  end
+
+  def unlock_user
+    update locked_at: nil
   end
 
 end

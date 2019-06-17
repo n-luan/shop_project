@@ -19,7 +19,7 @@
         </ul>
       </div>
       <%= form_for @profile, url: users_profile_path(current_user) do |f| %>
-        <%= render "users/shared/error_messages",
+        <%= render "shared/error_messages",
                   object: f.object %>
         <div class="form-row mx-4">
           <div class="col mb-3">

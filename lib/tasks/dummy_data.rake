@@ -7,6 +7,7 @@ namespace :dummy_data do
     Rake::Task["dummy_data:create_category"].invoke
     Rake::Task["dummy_data:create_product"].invoke
     Rake::Task["dummy_data:create_product_category"].invoke
+    Rake::Task["dummy_data:create_admin"].invoke
 
     puts "Create dummy data successfully"
   end
@@ -68,6 +69,7 @@ namespace :dummy_data do
     end
     puts "Data seed completed!"
   end
+
  task create_user: :environment do
   99.times do |n|
     name  = Faker::Name.name
@@ -101,12 +103,12 @@ namespace :dummy_data do
     puts "Data seed completed!"
   end
 
-  # task create_status: :environment do
-  #   30.times do |n|
-  #     content = ["Delivery", "Delivering" ,"Delivered"].sample
-  #     order = Order.all.to_a.sample
-  #     Status.create! content: content, order: order
-  #   end
-  # end
-
+  task create_admin: :environment do
+    1.times do |n|
+      email = "duongtvph04550@gmail.com"
+      password = "admin123"
+      Admin.create! email: email, password: password
+    end
+    puts "Created Admin success"
+  end
 end
