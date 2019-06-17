@@ -16,7 +16,6 @@
 //= require admin/popper.min
 //= require admin/bootstrap.min
 //= require admin/bootstrap-switch
-//= require admin/chartist.min
 //= require admin/bootstrap-notify
 //= require admin/light-bootstrap-dashboard
 //= require admin/demo
@@ -24,7 +23,14 @@
 //= require admin/nouislider.min
 //= require admin/jquery.dataTables.min
 //= require admin/dataTables.bootstrap4.min
+//= require toastr
 
 $(document).ready(function() {
-    $('#category-table').DataTable();
+    initDataTable();
 } );
+
+function initDataTable(){
+ $('#category-table').DataTable({
+    "order": []
+  });
+}

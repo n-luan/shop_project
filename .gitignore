@@ -28,4 +28,4 @@
 .env
 
 *.DS_Store
-
+.idea
