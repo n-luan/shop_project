@@ -11,7 +11,7 @@ namespace :dummy_data do
 
   task create_category: :environment do
     puts "Next, you should create category"
-    5.times do |n|
+    50.times do |n|
       name = Faker::Food.dish
       Category.create!(name: name)
     end

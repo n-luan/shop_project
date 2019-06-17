@@ -1,0 +1,20 @@
+<% categories.each do |category| %>
+  <tr>
+    <td><%= category.id %></td>
+    <td><%= category.name %></td>
+    <td><%= category.updated_at.strftime("%d/%m/%Y") %></td>
+    <td><%= category.created_at.strftime("%d/%m/%Y") %></td>
+    <td class="text-center">
+      <%= link_to edit_admin_category_path(category), remote: true do %>
+        <%= button_tag "Edit", class: "btn btn-primary", id: "btn-table-cate" %>
+      <% end %>
+    </td>
+    <td class="text-center">
+      <%= link_to admin_category_path(category), method: :delete, data: {confirm: "Delete?"}, remote: true do %>
+        <%= button_tag "Delete", class: "btn btn-primary" %>
+      <% end %>
+      </td>
+  </tr>
+<% end %>
+<div id="exampleModal02"></div>
+<div id="exampleModal03"></div>
