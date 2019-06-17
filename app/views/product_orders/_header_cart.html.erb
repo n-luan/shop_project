@@ -9,10 +9,10 @@
   </div>
 <% end %>
 <div class="shopping-cart-content">
-  <ul>
-    <li class="single-shopping-cart">
+  <ul class="scroll-cart">
+    <!-- <li class="single-shopping-cart"> -->
       <% current_order.product_orders.each do |product_order| %>
-        <li>
+        <li style="padding: 10px">
           <div class="shopping-cart-img">
             <%= link_to product_path(product_order.product_id) do %>
               <%= image_tag "/assets/cart/cart-1.jpg" %>
@@ -32,13 +32,19 @@
       <% end %>
     </li>
   </ul>
-  <div class="shopping-cart-total">
+  <div class="shopping-cart-total" style="padding: 10px">
     <h4>Total : <span class="shop-total">$ <%= current_order.subtotal %></span></h4>
   </div>
   <% if current_order.persisted? %>
-    <div class="shopping-cart-btn">
+    <div class="shopping-cart-btn" style="padding: 10px">
       <%= link_to "view cart", order_path(current_order) %>
       <%= link_to "checkout", "#" %>
     </div>
   <% end %>
 </div>
+<style>
+.scroll-cart {
+  height: 300px;
+  overflow: auto;
+}
+</style>

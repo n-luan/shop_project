@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  include SessionsHelper
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_categories
   helper_method :current_order
@@ -9,11 +8,25 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    session[:forwarding_url] || stored_location_for(resource) || root_path
+    case resource.class.name
+    when "Admin"
+      manager_root_path
+    when "User"
+      session[:forwarding_url] || stored_location_for(resource) || root_path
+    else
+      root_path
+    end
   end
 
   def after_sign_out_path_for(resource)
-    stored_location_for(resource) || root_path
+    case resource
+    when :admin
+      new_admin_session_path
+    when :user
+      stored_location_for(resource) || root_path
+    else
+      root_path
+    end
   end
 
   def current_order
