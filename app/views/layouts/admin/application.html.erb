@@ -14,11 +14,12 @@
     <%= render "layouts/admin/sidebar" %>
     <div class="main-panel">
       <%= render "layouts/admin/header" %>
-      <div class="messager">
-        <% flash.each do |message_type, message| %>
-          <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <script type="text/javascript">
+        <% flash.each do |f| %>
+        <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+         toastr['<%= type %>']('<%= f[1] %>');
         <% end %>
-      </div>
+      </script>
       <%= yield %>
       <%= render "layouts/admin/footer" %>
     </div>

@@ -1,4 +1,4 @@
-<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -7,7 +7,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <%= form_for Category.new, url: admin_category_index_path, remote: true do |f| %>
+      <%= form_for category, url: manager_category_path, remote: true do |f| %>
         <div class="modal-body">
           <div class="form-group">
             <%= f.label :name, "Name:", class: "col-form-label" %>
@@ -16,7 +16,7 @@
         </div>
         <div class="modal-footer">
           <%= button_tag "Close", class: "btn btn-secondary", "data-dismiss": "modal" %>
-          <%= f.submit "Create", class: "btn btn-primary"%>
+          <%= f.submit "Update", class: "btn btn-primary", id: "editSubmit"%>
         </div>
       <% end %>
     </div>

@@ -12,7 +12,7 @@
                 <%= form_for(resource, as: resource_name,
                 url: registration_path(resource_name)) do |f| %>
                   <%= render "users/shared/error_messages",
-                  resource: resource %>
+                  object: f.object %>
                   <div class="field">
                     <%= f.label :name %><br />
                     <%= f.text_field :name, autofocus: true,

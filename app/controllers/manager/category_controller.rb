@@ -1,4 +1,4 @@
-class Admin::CategoryController < Admin::BaseController
+class Manager::CategoryController < Manager::BaseController
 
   def index
     @categories = Category.order("created_at desc")

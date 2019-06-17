@@ -1,0 +1,31 @@
+<%= stylesheet_link_tag "admin/login", media: "all", "data-turbolinks-track": "reload" %>
+<%= stylesheet_link_tag "admin/bootstrap.min", media: "all", "data-turbolinks-track": "reload" %>
+<div class="fadeInDown">
+  <script type="text/javascript">
+    <% flash.each do |f| %>
+    <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+     toastr['<%= type %>']('<%= f[1] %>');
+    <% end %>
+  </script>
+</div>
+<div class="wrapper fadeInDown" style="align-items: center;
+    display: flex;">
+  <div id="formContent">
+    <div class="fadeIn first" style="height: 100px;">
+      <%= image_tag "logo/logo.png", style: "padding:30px" %>
+    </div>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= f.email_field :email, class: "fadeIn second", id: "email", placeholder: "Email" %>
+      <%= f.password_field :password, class: "fadeIn second", id:"password", placeholder: "Password" %>
+      <%= f.label :remember_me, class: "fadeIn fourth" do %>
+        <%= f.check_box :remember_me %>
+        <span>Remember me on this computer</span>
+      <% end %>
+      <%= f.submit "login", class: "fadeIn fourth", style: "margin-top: 20px"%>
+    <% end %>
+    <div id="formFooter" class="fadeIn fourth">
+      <span class="underlineHover" >Hi! how are you today?</span>
+    </div>
+  </div>
+</div>
+

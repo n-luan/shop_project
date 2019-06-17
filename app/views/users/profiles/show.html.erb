@@ -14,9 +14,8 @@
       <div class="banner_content">
         <div class="media">
           <div class="d-flex">
-            <%= image_tag (@profile.avatar.url if
-            @profile.avatar.url.presence) || "/assets/profile/default.jpg",
-            :class => "full_avatar"%>
+            <%= image_tag (@profile.avatar.url.presence ||
+            "/assets/profile/default.jpg"), class: "full_avatar" %>
           </div>
           <div class="media-body">
             <div class="personal_text">

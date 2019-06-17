@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+
   root "static_pages#home"
+
   devise_for :users, skip: :all
     as :user do
       get "/login" => "devise/sessions#new", :as => :new_user_session
@@ -12,10 +14,15 @@ Rails.application.routes.draw do
   namespace :users do
       resources :profiles, only: [:show, :edit, :update]
   end
-  namespace :admin do
+
+  namespace :manager do
     root "dashboard#index"
     resources :category
   end
+
+  devise_for :admins, controllers: {
+    sessions: "manager/admins/sessions",
+  }, path: "admin", path_names: { sign_in: "login" }
 
   resource :quick_views
   resources :products, only: [:index, :show]
