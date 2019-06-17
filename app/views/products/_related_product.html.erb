@@ -6,7 +6,7 @@
       </a>
       <div class="product-action">
         <div class="pro-action-left">
-           <%= form_for current_order.product_orders.build, remote: true do |f| %>
+           <%= form_for ProductOrder.new, remote: true do |f| %>
               <%= f.hidden_field :product_id, value: product.id %>
               <%= f.hidden_field :quantity, value: "1" %>
               <div class="shop-list-cart-wishlist">

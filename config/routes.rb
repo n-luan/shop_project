@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
   namespace :admin do
     root "dashboard#index"
+    resources :category
   end
 
   resource :quick_views

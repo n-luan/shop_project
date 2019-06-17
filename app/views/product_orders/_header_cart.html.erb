@@ -35,8 +35,10 @@
   <div class="shopping-cart-total">
     <h4>Total : <span class="shop-total">$ <%= current_order.subtotal %></span></h4>
   </div>
-  <div class="shopping-cart-btn">
-    <%= link_to "view cart", order_path(current_order) %>
-    <a href="checkout.html">checkout</a>
-  </div>
+  <% if current_order.persisted? %>
+    <div class="shopping-cart-btn">
+      <%= link_to "view cart", order_path(current_order) %>
+      <%= link_to "checkout", "#" %>
+    </div>
+  <% end %>
 </div>
