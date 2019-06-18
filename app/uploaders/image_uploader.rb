@@ -9,6 +9,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [210, 210]
   end
 
+  version :thumb_nail_1,from_version: :thumb_nail  do
+    process resize_to_fill: [187, 128]
+  end
+
   version :thumb, from_version: :thumb_nail do
     process resize_to_fill: [90, 90]
   end

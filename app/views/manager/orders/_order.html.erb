@@ -1,0 +1,36 @@
+<% orders.each do |order| %>
+  <tr role="row" class="odd">
+    <td style="text-align: center;">
+     <%= order.id  %>
+    </td>
+    <td class="sorting_1"style="text-align: center;">
+      <%= order.name %>
+    </td>
+    <td>
+      <p style="text-align: center;">
+        <%= order.phone %>
+      </p>
+    </td>
+    <td>
+      <p style="text-align: center;">
+        <%= order.address %>
+      </p>
+    </td>
+    <td>
+      <%= form_for order , url: manager_order_path(order), method: :patch do |f| %>
+        <%= f.hidden_field :order_id, value: order.id %>
+        <div class="form-group">
+          <%= f.select :status, Order.statuses.keys , {}, class: "sel", id:"status-btn", data: {value: f.object.status} %>
+        </div>
+      <% end %>
+    </td>
+    <td>
+      <%= order.created_at.strftime("%d/%m/%Y") %>
+    </td>
+    <td>
+      <%= link_to "Detail",manager_order_path(order),{:remote => true, "data-toggle" =>  "modal", "data-target" => "#myModalShow#{order.id}", class: "btn btn-primary btn-sm buton" } %>
+      &nbsp;&nbsp;&nbsp;
+      <%= link_to "Delete", manager_order_path(order), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger btn-sm buton", remote: true %>
+    </td>
+  </tr>
+<% end %>

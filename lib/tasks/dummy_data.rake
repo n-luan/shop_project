@@ -68,4 +68,45 @@ namespace :dummy_data do
     end
     puts "Data seed completed!"
   end
+ task create_user: :environment do
+  99.times do |n|
+    name  = Faker::Name.name
+    email = "user-#{n+1}@email.com"
+    password = "12345678"
+    User.create!(name:  name,
+                 email: email,
+                 password:              password,
+                 password_confirmation: password )
+    end
+  end
+
+  task create_order: :environment do
+    30.times do |n|
+      user = User.all.to_a.sample
+      email = User.pluck(:email).to_a.sample
+      phone = Faker::PhoneNumber.phone_number_with_country_code
+      address = Faker::Address.street_address
+      Order.create! user: user, email: email, phone: phone, address: address
+    end
+    puts "Data seed completed!"
+  end
+
+  task create_product_order: :environment do
+    30.times do |n|
+      order = Order.all.to_a.sample
+      product = Product.all.to_a.sample
+      quantity = (1..10).to_a.sample
+      ProductOrder.create! order: order, product: product, quantity: quantity
+    end
+    puts "Data seed completed!"
+  end
+
+  # task create_status: :environment do
+  #   30.times do |n|
+  #     content = ["Delivery", "Delivering" ,"Delivered"].sample
+  #     order = Order.all.to_a.sample
+  #     Status.create! content: content, order: order
+  #   end
+  # end
+
 end

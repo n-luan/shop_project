@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     root "dashboard#index"
     resources :category
     resources :products
+    resources :notifications
+    resources :orders
+    mount ActionCable.server => '/cable'
   end
 
   devise_for :admins, controllers: {
@@ -31,4 +34,5 @@ Rails.application.routes.draw do
   resources :reviews
   resources :product_orders, only: [:create, :destroy]
   resources :orders
+  resources :notifications
 end

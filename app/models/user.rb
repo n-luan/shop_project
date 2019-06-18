@@ -8,6 +8,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :reviews, dependent: :destroy
   has_many :orders
+  has_many :notifications
   scope :group_by_type, -> (type) {
      case type
      when "day"
@@ -48,4 +49,5 @@ class User < ApplicationRecord
       data << {"date" => date, "user" => user, "max" => max, "title" => title}
     end
   end
+
 end

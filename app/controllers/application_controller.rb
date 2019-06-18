@@ -3,10 +3,6 @@ class ApplicationController < ActionController::Base
   before_action :set_categories
   helper_method :current_order
 
-  def current_order
-    session[:order_id].present? ? Order.find(session[:order_id]) : Order.new
-  end
-
   def after_sign_in_path_for(resource)
     case resource.class.name
     when "Admin"
@@ -30,7 +26,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_order
-    session[:order_id].present? ? Order.find_by(id: session[:order_id]) : Order.new
+    session[:order_id].present? ? Order.find_by(id: session[:order_id]) || Order.new : Order.new
   end
 
   protected

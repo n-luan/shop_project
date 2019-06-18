@@ -1,0 +1,11 @@
+<li class="dropdown nav-item">
+  <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+    <span  id="open_notification">
+      <%= render "manager/notifications/counter",counter: Notification.where(:opened_at => nil).size %>
+    </span>
+    <span class="d-lg-none">Notification</span>
+  </a>
+  <ul class="dropdown-menu" id="notificationList">
+    <%= render notifications %>
+  </ul>
+</li>

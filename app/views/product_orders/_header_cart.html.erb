@@ -10,25 +10,26 @@
 <% end %>
 <div class="shopping-cart-content">
   <ul class="scroll-cart">
-    <!-- <li class="single-shopping-cart"> -->
-      <% current_order.product_orders.each do |product_order| %>
-        <li style="padding: 10px">
-          <div class="shopping-cart-img">
-            <%= link_to product_path(product_order.product_id) do %>
-              <%= image_tag "/assets/cart/cart-1.jpg" %>
-            <% end %>
-          </div>
-          <div class="shopping-cart-title">
-            <h4><%= link_to truncate(product_order.product.name, :length => 17) ,product_order.product %></h4>
-            <h6>Qty: <%= product_order.quantity %></h6>
-            <span><%= number_to_currency(product_order.product.sale_price || product_order.product.price) %></span>
-          </div>
-          <div class="shopping-cart-delete">
-            <%= link_to product_order, method: :delete, remote: true do %>
-              <i class="ion ion-close"></i>
-            <% end %>
-          </div>
-        </li>
+      <% if current_order.present? %>
+        <% current_order.product_orders.each do |product_order| %>
+          <li style="padding: 10px">
+            <div class="shopping-cart-img">
+              <%= link_to product_path(product_order.product_id) do %>
+                <%= image_tag product_order.product.image_url(:thumb) || "product-details/thumb_anh1" %>
+              <% end %>
+            </div>
+            <div class="shopping-cart-title">
+              <h4><%= link_to truncate(product_order.product.name, :length => 17) ,product_order.product %></h4>
+              <h6>Qty: <%= product_order.quantity %></h6>
+              <span><%= number_to_currency(product_order.product.sale_price || product_order.product.price) %></span>
+            </div>
+            <div class="shopping-cart-delete">
+              <%= link_to product_order, method: :delete, remote: true do %>
+                <i class="ion ion-close"></i>
+              <% end %>
+            </div>
+          </li>
+        <% end %>
       <% end %>
     </li>
   </ul>
