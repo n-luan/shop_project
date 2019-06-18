@@ -21,7 +21,7 @@
           <div class="shopping-cart-title">
             <h4><%= link_to truncate(product_order.product.name, :length => 17) ,product_order.product %></h4>
             <h6>Qty: <%= product_order.quantity %></h6>
-            <span>$ <%= product_order.product.price %></span>
+            <span><%= number_to_currency(product_order.product.sale_price || product_order.product.price) %></span>
           </div>
           <div class="shopping-cart-delete">
             <%= link_to product_order, method: :delete, remote: true do %>

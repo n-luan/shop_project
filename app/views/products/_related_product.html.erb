@@ -32,8 +32,8 @@
         <a href="product-details.html"><%= product.name %> </a>
       </h4>
       <div class="product-price-wrapper">
-        <span>$<%= product.sale_price %></span>
-        <span class="product-price-old">$<%= product.price %> </span>
+        <span><%= number_to_currency(product.price) %></span>
+        <span class="product-price-old"><%= number_to_currency(product.price) %></span>
       </div>
     </div>
   </div>

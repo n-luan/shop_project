@@ -2,7 +2,7 @@
   <div class="product-wrapper mb-25">
     <div class="product-img">
       <%= link_to product do %>
-        <%= image_tag (product.image_url if product.image.presence) || "/assets/product/product-1.jpg" %>
+        <%= image_tag product.image_url(:thumb_nail) || "/assets/product/product-1.jpg" %>
       <% end %>
       <div class="product-action">
         <div class="pro-action-left">
@@ -23,7 +23,12 @@
         <%= link_to "#{product.name}", product %>
       </h4>
       <div class="product-price-wrapper">
-        <span>$ <%= product.price %></span>
+        <% if product.sale_price.nil?  %>
+           <span><%= number_to_currency(product.price)%></span>
+        <% else %>
+          <span><%= number_to_currency(product.sale_price) %></span>
+          <span class="product-price-old"><%= number_to_currency(product.price)%></span>
+        <% end %>
       </div>
     </div>
   </div>

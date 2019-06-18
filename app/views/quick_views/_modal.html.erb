@@ -39,8 +39,7 @@
             <div class="modal-pro-content">
               <h3><%= product.name %> </h3>
               <div class="product-price-wrapper">
-                <span>$<%= product.sale_price %></span>
-                <span class="product-price-old">$<%= product.price %> </span>
+                <span><%=number_to_currency(@product.price) %></span>
               </div>
               <p><%= product.description %></p>
               <div class="product-quantity">

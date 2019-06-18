@@ -9,10 +9,10 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
+//= require admin/jquery-3.3.1
 //= require jquery
 //= require jquery_ujs
-//= require admin/jquery.3.2.1.min
-//= require admin/jquery-3.3.1
+//= require jquery.remotipart
 //= require admin/popper.min
 //= require admin/bootstrap.min
 //= require admin/bootstrap-switch
@@ -23,8 +23,12 @@
 //= require admin/nouislider.min
 //= require admin/jquery.dataTables.min
 //= require admin/dataTables.bootstrap4.min
+//= require admin/jquery.multicheck
+//= require admin/datatable-checkbox-init
 //= require toastr
-
 $(document).ready(function() {
     $('#category-table').DataTable();
+} );
+$(document).ready(function() {
+  $('#zero_config').DataTable();
 } );
