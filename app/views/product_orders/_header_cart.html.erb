@@ -1,11 +1,11 @@
 <%= link_to "", class: "cart-btn" do %>
   <div class="header-icon-style">
     <i class="icon-handbag icons"></i>
-    <span class="count-style"><%= current_order.total_quantity %></span>
+    <span class="count-style"><%= (current_order.total_quantity if current_order.presence) || 0 %></span>
   </div>
   <div class="cart-text">
     <span class="digit">My Cart</span>
-    <span class="cart-digit-bold">$ <%= current_order.subtotal %></span>
+    <span class="cart-digit-bold"><%= number_to_currency(current_order.subtotal) if current_order.presence || 0 %></span>
   </div>
 <% end %>
 <div class="shopping-cart-content">
@@ -33,7 +33,7 @@
     </li>
   </ul>
   <div class="shopping-cart-total" style="padding: 10px">
-    <h4>Total : <span class="shop-total">$ <%= current_order.subtotal %></span></h4>
+    <h4>Total : <span class="shop-total"><%= number_to_currency(current_order.subtotal) %></span></h4>
   </div>
   <% if current_order.persisted? %>
     <div class="shopping-cart-btn" style="padding: 10px">
@@ -42,9 +42,3 @@
     </div>
   <% end %>
 </div>
-<style>
-.scroll-cart {
-  height: 300px;
-  overflow: auto;
-}
-</style>
