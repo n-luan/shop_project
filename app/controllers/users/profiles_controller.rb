@@ -12,6 +12,7 @@ class Users::ProfilesController < ApplicationController
   def update
     @profile = current_user.profile
     if @profile.update_attributes(profile_params)
+      sign_in @profile.user, :bypass => true
       flash[:success] = "Update profile success!"
       redirect_to users_profile_path
     else
@@ -30,7 +31,11 @@ class Users::ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:avatar, :address, :phone, :facebook, :twitter, :instagram, user_attributes: [:id, :name])
+    if params[:profile][:user_attributes][:password].blank?
+      params.require(:profile).permit(:avatar, :address, :phone, :facebook, :twitter, :instagram, user_attributes: [:id, :name])
+    else
+      params.require(:profile).permit(:avatar, :address, :phone, :facebook, :twitter, :instagram, user_attributes: [:id, :name,:password, :password_confirmation])
+    end
   end
 
 end

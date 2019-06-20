@@ -1,76 +1,89 @@
-<div class="row">
-  <div class="col-75">
-    <div class="container">
-      <form action="/action_page.php">
-
-        <div class="row">
-          <div class="col-50">
-            <h3>Billing Address</h3>
-            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
-            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="john@example.com">
-            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
-            <label for="city"><i class="fa fa-institution"></i> City</label>
-            <input type="text" id="city" name="city" placeholder="New York">
-
-            <div class="row">
-              <div class="col-50">
-                <label for="state">State</label>
-                <input type="text" id="state" name="state" placeholder="NY">
+<div class="container">
+  <div class="container-fluid" style="padding: 30px">
+    <div class="row">
+      <div class="col-md-4 order-md-2 mb-4">
+        <h2 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted">Your cart</span>
+          <span class="badge badge-secondary badge-pill"><%= current_order.total_quantity %></span>
+        </h2>
+        <ul class="list-group mb-3">
+          <% current_order.product_orders.each do |product_order| %>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0"><%= product_order.product.name %></h6>
+                <small class="text-muted">Quatity: <%= product_order.quantity %></small>
               </div>
-              <div class="col-50">
-                <label for="zip">Zip</label>
-                <input type="text" id="zip" name="zip" placeholder="10001">
+              <span class="text-muted"><%= number_to_currency(product_order.product.sale_price || product_order.product.price) %></span>
+            </li>
+          <% end %>
+          <li class="list-group-item d-flex justify-content-between" style="background-color: black; color:white">
+            <span>Total (USD)</span>
+            <strong>$ <%= current_order.subtotal %></strong>
+          </li>
+        </ul>
+        <form class="card p-2">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Promo code">
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-secondary" style="height: 100%">Redeem</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-8 order-md-1">
+        <h2 class="mb-3">Billing address</h2>
+        <form class="needs-validation" novalidate="">
+          <div class="mb-3">
+            <label for="username">Full name <span style="color: red">(*)</span></label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i>
+</span>
+              </div>
+              <input type="text" class="form-control" id="username" placeholder="Full name" required="">
+              <div class="invalid-feedback" style="width: 100%;">
+                Your username is required.
               </div>
             </div>
           </div>
-
-          <div class="col-50">
-            <h3>Payment</h3>
-            <label for="fname">Accepted Cards</label>
-            <div class="icon-container">
-              <i class="fa fa-cc-visa" style="color:navy;"></i>
-              <i class="fa fa-cc-amex" style="color:blue;"></i>
-              <i class="fa fa-cc-mastercard" style="color:red;"></i>
-              <i class="fa fa-cc-discover" style="color:orange;"></i>
-            </div>
-            <label for="cname">Name on Card</label>
-            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
-            <label for="ccnum">Credit card number</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-            <label for="expmonth">Exp Month</label>
-            <input type="text" id="expmonth" name="expmonth" placeholder="September">
-            <div class="row">
-              <div class="col-50">
-                <label for="expyear">Exp Year</label>
-                <input type="text" id="expyear" name="expyear" placeholder="2018">
+          <div class="mb-3">
+            <label for="username">Email <span style="color: red">(*)</span></label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i>
+</span>
               </div>
-              <div class="col-50">
-                <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="352">
+              <input type="text" class="form-control" id="username" placeholder="Your email" required="">
+              <div class="invalid-feedback" style="width: 100%;">
+                Your username is required.
               </div>
             </div>
           </div>
-
-        </div>
-        <label>
-          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
-        </label>
-        <input type="submit" value="Continue to checkout" class="btn">
-      </form>
-    </div>
-  </div>
-  <div class="col-25">
-    <div class="container">
-      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-      <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-      <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-      <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-      <p><a href="#">Product 4</a> <span class="price">$2</span></p>
-      <hr>
-      <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+          <div class="mb-3">
+            <label for="username">Number phone <span style="color: red">(*)</span></label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-phone-square" aria-hidden="true"></i>
+</i></span>
+              </div>
+              <input type="text" class="form-control" id="username" placeholder="Your phone number" required="">
+              <div class="invalid-feedback" style="width: 100%;">
+                Your username is required.
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="username">Address <span style="color: red">(*)</span></label>
+            <div class="input-group">
+              <textarea class="form-control" placeholder="Your address" style="border-radius: 4px;"></textarea>
+              <div class="invalid-feedback" style="width: 100%;">
+                Your username is required.
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-secondary btn-lg btn-block" type="submit" style="height: 0%;">Continue to checkout</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>

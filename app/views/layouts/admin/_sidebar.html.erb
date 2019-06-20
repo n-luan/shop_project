@@ -13,10 +13,10 @@
         </a>
       </li>
       <li>
-        <a class="nav-link" href="./user.html">
-          <i class="nc-icon nc-circle-09"></i>
-          <p>User Profile</p>
-        </a>
+        <%= link_to manager_users_path, class: "nav-link" do %>
+          <i class="nc-icon nc-tag-content"></i>
+          <p>User List</p>
+        <% end %>
       </li>
       <li>
         <%= link_to manager_products_path, class: "nav-link" do %>
