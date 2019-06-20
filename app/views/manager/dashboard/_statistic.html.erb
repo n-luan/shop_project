@@ -1,0 +1,13 @@
+<script type="text/javascript" src="/assets/admin/highchart-1.js"></script>
+<div id="button-statistic">
+  <%= link_to manager_root_path(type: "day"), method: :get, class: "btn-statistic day", remote: true do %>
+    <%= button_tag "Day", class: "btn btn-primary btn-xs" %>
+  <% end %>
+  <%= link_to manager_root_path(type: "month"), method: :get, class: "btn-statistic month", remote: true do %>
+    <%= button_tag "Month", class: "btn btn-primary btn-xs" %>
+  <% end %>
+  <%= link_to manager_root_path(type: "week"), method: :get, class: "btn-statistic week", remote: true do %>
+    <%= button_tag "Week", class: "btn btn-primary btn-xs" %>
+  <% end %>
+</div>
+<div id="container" style="width: 958px; height: 600px; margin: 0 auto" data-date="<%= data_user[0]["date"]%>" data-user="<%= data_user[0]["user"]%>" data-max="<%= data_user[0]["max"] %>" data-title="<%= data_user[0]["title"] %>" data-order="<%= data_order[0]["order"] %>" data-product="<%= data_product[0]["product"] %>" ></div>

@@ -25,6 +25,7 @@
 //= require admin/dataTables.bootstrap4.min
 //= require admin/jquery.multicheck
 //= require admin/datatable-checkbox-init
+//= require admin/statistic
 //= require toastr
 $(document).ready(function() {
     $('#category-table').DataTable();
