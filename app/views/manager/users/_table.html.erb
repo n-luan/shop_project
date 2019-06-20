@@ -35,7 +35,7 @@ style="width:100%">
       <td style="text-align: center !important;">
         <%= link_to manager_user_path(u,
         function: u.locked_at? ? "unlock" : "lock"), method: :patch,
-        data: {confirm: u.locked_at? ? "Confirm unlock user" : "Confirm lock user"},
+        data: {confirm: u.locked_at? ? "Confirm unlock user?" : "Confirm lock user?"},
         remote: true do %>
           <%= button_tag u.locked_at? ? "Unlock" : "Lock",
           class: "btn btn-danger", style: "width: 45px"%>
