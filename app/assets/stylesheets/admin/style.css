@@ -1,0 +1,13 @@
+#button-statistic {
+  display: inline-block;
+  float: right;
+}
+#button-statistic a {
+  padding: 0px 1px;
+}
+.btn-statistic.week, .btn-statistic.month {
+  float: right;
+}
+.btn-statistic.day {
+  float:left;
+}
