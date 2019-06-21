@@ -26,5 +26,6 @@
 //= require bootstrap-sprockets
 //= require cable
 //= require cart
+//= require cart_modal
 //= require main
 //= require toastr

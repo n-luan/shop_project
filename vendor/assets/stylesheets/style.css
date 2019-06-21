@@ -5393,5 +5393,10 @@ label.star:before {
   content: '\f006';
   font-family: FontAwesome;
 }
+.scroll-cart {
+  height: 300px;
+  overflow: auto;
+}
+
 
 /*Rating star end*/
