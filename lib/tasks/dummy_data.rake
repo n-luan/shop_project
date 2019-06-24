@@ -105,8 +105,8 @@ namespace :dummy_data do
 
   task create_admin: :environment do
     1.times do |n|
-      email = "duongtvph04550@gmail.com"
-      password = "admin123"
+      email = "admin01@gmail.com"
+      password = "123456"
       Admin.create! email: email, password: password
     end
     puts "Created Admin success"

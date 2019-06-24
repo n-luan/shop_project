@@ -1,0 +1,79 @@
+<div class="col-md-8 order-md-1">
+  <h2 class="mb-3">Billing address</h2>
+  <% if user_signed_in? %>
+    <%= form_for @order, url: checkout_path(current_order) do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <div class="mb-3">
+        <%= f.label "Full name"%><span style="color: red">(*)</span>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>
+          </div>
+          <%= f.text_field :name, class: "form-control", placeholder: "Your name", value: @order.name.presence||current_user.name %>
+        </div>
+      </div>
+      <div class="mb-3">
+        <%= f.label "Email"%><span style="color: red">(*)</span>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+          </div>
+          <%= f.text_field :email, class: "form-control", placeholder: "Your email", value: @order.email.presence||current_user.email %>
+        </div>
+      </div>
+      <div class="mb-3">
+        <%= f.label "Number phone"%><span style="color: red">(*)</span>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-phone-square" aria-hidden="true"></i></i></span>
+          </div>
+          <%= f.text_field :phone, class: "form-control", placeholder: "Your phone", value: @order.phone.presence||current_user.profile.phone %>
+        </div>
+      </div>
+      <div class="mb-3">
+        <%= f.label "Address"%><span style="color: red">(*)</span>
+        <div class="input-group">
+          <%= f.text_area :address, class: "form-control", placeholder: "Your address", value: @order.address.presence||current_user.profile.address %>
+        </div>
+      </div>
+      <%= f.submit "Continue checkout", class: "btn btn-secondary btn-lg btn-block",style: "height: 0%", method: :update%>
+    <% end %>
+  <% else %>
+    <%= form_for @order, url: checkout_path, method: :patch do |f| %>
+      <div class="mb-3">
+        <%= f.label "Full name"%><span style="color: red">(*)</span>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>
+          </div>
+          <%= f.text_field :name, class: "form-control", placeholder: "Your name" %>
+        </div>
+      </div>
+      <div class="mb-3">
+        <%= f.label "Email"%><span style="color: red">(*)</span>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+          </div>
+          <%= f.text_field :email, class: "form-control", placeholder: "Your email" %>
+        </div>
+      </div>
+      <div class="mb-3">
+        <%= f.label "Number phone"%><span style="color: red">(*)</span>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-phone-square" aria-hidden="true"></i></i></span>
+          </div>
+          <%= f.text_field :phone, class: "form-control", placeholder: "Your phone" %>
+        </div>
+      </div>
+      <div class="mb-3">
+        <%= f.label "Address"%><span style="color: red">(*)</span>
+        <div class="input-group">
+          <%= f.text_area :address, class: "form-control", placeholder: "Your address" %>
+        </div>
+      </div>
+      <%= f.submit "Continue checkout", class: "btn btn-secondary btn-lg btn-block", style: "height: 0%", method: :update%>
+    <% end %>
+  <% end %>
+</div>

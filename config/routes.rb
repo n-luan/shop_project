@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :users do
       resources :profiles, only: [:show, :edit, :update]
+      resources :order_histories
   end
 
   namespace :manager do

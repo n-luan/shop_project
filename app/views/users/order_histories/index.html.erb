@@ -1,0 +1,28 @@
+<%= stylesheet_link_tag "order_history", media: "all", "data-turbolinks-track": "reload" %>
+<div class="container">
+  <div style="margin: 40px 0px 40px 0px;">
+  <h2>Your order history</h2>
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div class="col col-2">ID_Order</div>
+      <div class="col col-2">Created_at</div>
+      <div class="col col-2">Quantity</div>
+      <div class="col col-2">Price</div>
+      <div class="col col-2">Status</div>
+    </li>
+    <% @orders.each do |order| %>
+      <%= link_to users_order_history_path(order), remote: true do %>
+        <li class="table-row">
+          <div class="col col-2"><%= order.id %></div>
+          <div class="col col-2"><%= order.created_at.strftime("%m/%d/%Y") %></div>
+          <div class="col col-2"><%= order.total_quantity %></div>
+          <div class="col col-2"><%= number_to_currency(order.subtotal) %></div>
+          <div class="col col-2"><%= order.status || "Tracking"%></div>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+  <%= paginate @orders, theme: "twitter-bootstrap-4" %>
+  </div>
+</div>
+<div class="details-order-histories"></div>

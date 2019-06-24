@@ -1,7 +1,11 @@
 class Users::OrderHistoriesController < ApplicationController
 
   def index
-    @orders = Order.where(user_id: current_user.id).page(params[:page]).per(5)
+    if user_signed_in?
+      @orders = Order.where(user_id: current_user.id).page(params[:page]).per(5)
+    else
+      @orders = Order.where(id: session[:order_ids]).page(params[:page]).per(5)
+    end
   end
 
   def show
