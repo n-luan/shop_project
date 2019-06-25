@@ -1,2 +1,4 @@
 $("#table_product").html("<%= j render "manager/products/product", products: @products %>");
 $("#myModal").modal("hide");
+initDataTable1();
+toastr["info"]("Created Product Success");

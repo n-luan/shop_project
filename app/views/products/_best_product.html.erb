@@ -2,7 +2,7 @@
   <div class="product-wrapper">
     <div class="product-img">
       <%= link_to product do %>
-        <%= image_tag (product.image_url if product.image.presence) || "/assets/product/product-1.jpg" %>
+        <%= image_tag product.image_url(:thumb) || "/assets/product/product-1.jpg" %>
       <% end %>
       <div class="product-action">
         <div class="pro-action-left">

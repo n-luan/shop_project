@@ -829,3 +829,32 @@
 .buton {
     margin-top: 5px;
 }
+#form-control-description{
+    display: block;
+    width: 100%;
+    height: 140px;
+    border: 1px solid #61635f;
+}
+#form-control-color{
+    border: 1px solid #61635f;
+}
+select#status-btn {
+  background-color: #FFFFFF;
+  border: 1px solid #E3E3E3;
+  border-radius: 4px;
+  padding: 8px 20px;
+  color: #565656;
+  height: 40px;
+  box-shadow: none;
+}
+#notification-counter {
+  position: absolute;
+  top: 5px;
+  left: 25px;
+
+  background-color: rgb(212, 78, 3);
+  color: #fff;
+  border-radius: 3px;
+  padding: 1px 3px;
+  font: 16px Verdana;
+}

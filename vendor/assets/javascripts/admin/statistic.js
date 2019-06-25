@@ -9569,4 +9569,3 @@
   G["masters/highcharts.src.js"]._modules = G;
   return G["masters/highcharts.src.js"]
 });
-//# sourceMappingURL=highcharts.js.map

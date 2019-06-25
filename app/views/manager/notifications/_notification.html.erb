@@ -1,0 +1,5 @@
+<li class="dropdown-item">
+  <strong><%= notification.event %></strong> was created. Check <%= link_to "Now",manager_orders_path(notification: notification.id) %>
+  <br>
+  <strong><small>was created at: <%= notification.created_at.strftime("%T-%d/%m/%Y") %></small></strong>
+</li>

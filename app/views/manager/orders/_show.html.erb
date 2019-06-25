@@ -1,0 +1,33 @@
+<div class="modal fade bd-example-modal-lg" id="myModalShow<% order.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4><b>Detail Order</b></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+      </div>
+      <div class="modal-body">
+        <% order.product_orders.each do |product_order| %>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-3">
+                <%= image_tag product_order.product.image_url(:thumb_nail_1) || "product-details/thumb_nail_1" %>
+              </div>
+              <div class="col-md-9">
+                <div class="col-md-6">
+                  <h4><%= product_order.product.name  %></h4>
+                  <h6>Qty: <%= product_order.quantity %></h6>
+                  <span><%= number_to_currency(product_order.product.sale_price || product_order.product.price) %></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="col-md-3">
+          <h4>Total : <%= number_to_currency(order.subtotal) %></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

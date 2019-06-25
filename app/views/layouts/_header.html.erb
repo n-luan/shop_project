@@ -107,15 +107,15 @@
                 <li><a href="about-us.html">about</a></li>
                 <li class="mega-menu-position top-hover"><a href="">Category<i class="ion-chevron-down"></i></a>
                   <ul class="mega-menu">
-                    <li>
-                      <ul>
-                        <% categories.each do |category| %>
-                          <li>
-                            <%= link_to "#{category.name}", category %>
-                          </li>
-                        <% end %>
-                      </ul>
-                    </li>
+                    <% categories.each do |category| %>
+                      <li>
+                        <ul>
+                            <li>
+                              <%= link_to "#{category.name}", category %>
+                            </li>
+                        </ul>
+                      </li>
+                    <% end %>
                   </ul>
                 </li>
                 <li class="top-hover"><a href="blog-rightsidebar.html">blog <i class="ion-chevron-down"></i></a>

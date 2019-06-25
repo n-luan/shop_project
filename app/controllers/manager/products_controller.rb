@@ -16,10 +16,13 @@ class Manager::ProductsController < Manager::BaseController
 
   def create
     @product = Product.new product_params
-    @product.save
-    @products = Product.all
-    respond_to do |format|
-      format.js
+    if @product.save
+      @products = Product.all
+      respond_to do |format|
+        format.js
+      end
+    else
+      render "new_form"
     end
   end
 

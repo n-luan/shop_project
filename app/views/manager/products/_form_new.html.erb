@@ -1,0 +1,27 @@
+<%= form_for [:manager, product], remote: true, authenticity_token: true,:html => {:multipart => true} do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control", id: "form-control-color" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :price %>
+    <%= f.number_field  :price, class: "form-control", min: 1, id: "form-control-color" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :sale_price %>
+    <%= f.number_field :sale_price, class: "form-control", min: 1, id: "form-control-color" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :category %>
+    <br>
+    <%= f.select :category_ids, options_for_select(product_categories),{} ,class: "form-control", id: "form-control-color" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control", id: "form-control-description" %>
+  </div>
+  <div class="form-group">
+    <%= f.file_field :image %>
+  </div>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>

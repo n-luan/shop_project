@@ -1,8 +1,11 @@
 class Order < ApplicationRecord
+  enum status: [:Tracking, :Delivering, :Completed, :Cancel]
   belongs_to :user, optional: true
   has_many :product_orders, dependent: :destroy
   has_many :products, through: :product_orders
+  has_one  :notification
   before_save :update_subtotal
+  after_create_commit { notify }
 
   scope :group_by_type, -> (type) {
     case type
@@ -47,8 +50,13 @@ class Order < ApplicationRecord
     product_orders.collect{ |po| po.valid? ? po.quantity : 0}.sum
   end
 
+
   private
   def update_subtotal
     self[:subtotal] = subtotal
+  end
+
+  def notify
+    Notification.create(event: "Order-#{self.id}")
   end
 end
