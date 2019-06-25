@@ -5,7 +5,7 @@
   </div>
   <div class="cart-text">
     <span class="digit">My Cart</span>
-    <span class="cart-digit-bold"><%= number_to_currency(current_order.subtotal) if current_order.presence || 0 %></span>
+    <span class="cart-digit-bold"><%= (number_to_currency(current_order.subtotal) if current_order.presence) || 0 %></span>
   </div>
 <% end %>
 <div class="shopping-cart-content">
@@ -39,7 +39,7 @@
   <% if current_order.persisted? %>
     <div class="shopping-cart-btn" style="padding: 10px">
       <%= link_to "view cart", order_path(current_order) %>
-      <%= link_to "checkout", "#" %>
+      <%= link_to "checkout", edit_checkout_path(current_order) %>
     </div>
   <% end %>
 </div>

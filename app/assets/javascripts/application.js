@@ -30,3 +30,9 @@
 //= require main
 //= require toastr
 
+$(document).ready(function(){
+  $('#show-password-field').click(function(){
+      $('#change-password').toggle(500);
+  });
+});
+

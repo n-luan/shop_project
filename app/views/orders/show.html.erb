@@ -42,7 +42,7 @@
               <div class="total-shipping">
                 <%= render "orders/total_shipping" %>
               </div>
-              <a href="#">Proceed to Checkout</a>
+              <%= link_to "Proceed to Checkout", edit_checkout_path(current_order) %>
             </div>
           </div>
         </div>

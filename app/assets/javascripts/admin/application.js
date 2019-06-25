@@ -29,6 +29,7 @@
 //= require admin/datatable-checkbox-init
 //= require admin/statistic
 //= require toastr
+
 $(document).ready(function() {
    initDataTable();
    initDataTable1();
@@ -52,6 +53,7 @@ function initDataTable2(){
 $(document).ready(function() {
   $('#category-table').DataTable();
 } );
+
 $(document).ready(function() {
   $('#zero_config').DataTable()
 } );

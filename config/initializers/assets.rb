@@ -13,4 +13,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w( admin/login.css
-admin/bootstrap.min.css admin/bootstrap.min.js admin/jquery.3.2.1.min.js )
+admin/bootstrap.min.css admin/bootstrap.min.js admin/jquery.3.2.1.min.js
+order_history.css )

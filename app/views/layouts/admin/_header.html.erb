@@ -35,29 +35,14 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href=""
           id="navbarDropdownMenuLink" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-            <span class="no-icon">Dropdown</span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href=""
-          id="navbarDropdownMenuLink" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+          aria-haspopup="true" aria-expanded="false" style="margin-right: 30px">
             <span class="no-icon"><%= current_admin.email.split("@")[0] %></span>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="#">Something </a>
             <div class="divider"></div>
             <%= link_to "Logout", destroy_admin_session_path, method: :delete,
-              :class => "nav-link", :style => "color:red" %>
+              :class => "dropdown-item", :style => "color:red" %>
           </div>
         </li>
       </ul>

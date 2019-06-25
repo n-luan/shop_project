@@ -1,0 +1,49 @@
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog" style="margin-top: 150px">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Order details</h2>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+          </tr>
+          <% order.product_orders.each do |product_order| %>
+            <tr>
+              <td>
+                <%= product_order.product.name %>
+              </td>
+              <td><%= product_order.quantity %></td>
+              <td><%= product_order.product.price %></td>
+              <td><%= product_order.quantity*product_order.product.price %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+      <hr>
+      <div style="text-align: center; margin-bottom: 1rem; font-weight: bolder;">
+        ---------------------------<span style="color:black">Fu<span style="color:red">dink</span></span>---------------------------
+      </div>
+    </div>
+
+  </div>
+</div>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+</style>
