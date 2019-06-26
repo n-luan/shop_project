@@ -78,14 +78,15 @@
               <% end %>
             </div>
             <div class="header-wishlist">
-              <a href="wishlist.html">
+              <!-- <a href="wishlist.html">
                 <div class="header-icon-style">
                   <i class="icon-heart icons"></i>
                 </div>
                 <div class="wishlist-text">
                   <p>Your <br> <span>Wishlist</span></p>
                 </div>
-              </a>
+              </a> -->
+              <%= render "notifications/notification_center", notifications: notifications %>
             </div>
             <div class="header-cart">
               <%= render "product_orders/header_cart" %>

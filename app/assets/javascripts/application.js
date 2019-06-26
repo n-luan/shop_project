@@ -25,10 +25,19 @@
 //= require activestorage
 //= require bootstrap-sprockets
 //= require cable
+//= require ./channels/notifications_user.coffee
 //= require cart
 //= require cart_modal
 //= require main
 //= require toastr
+$(document).ready(function()
+{
+  $("#notification").click(function(event)
+  {
+    event.stopPropagation();
+    $("#notificationContainer").fadeToggle(300);
+    $("#notification_count").fadeOut("fast");
+  });
 
 $(document).ready(function(){
   $('#show-password-field').click(function(){
@@ -36,3 +45,9 @@ $(document).ready(function(){
   });
 });
 
+  $(document).on("click", function()
+  {
+    $("#notificationContainer").hide();
+  });
+
+});

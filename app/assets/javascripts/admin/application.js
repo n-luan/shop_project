@@ -20,7 +20,7 @@
 //= require admin/light-bootstrap-dashboard
 //= require admin/demo
 //= require cable
-//= require_directory ../channels
+//= require admin/notifications.coffee
 //= require admin/bootstrap-datepicker
 //= require admin/nouislider.min
 //= require admin/jquery.dataTables.min

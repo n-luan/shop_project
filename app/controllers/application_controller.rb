@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_categories
+  before_action :load_notifications
   helper_method :current_order
   include SessionsHelper
 
@@ -28,6 +29,10 @@ class ApplicationController < ActionController::Base
 
   def current_order
     session[:order_id].present? ? Order.find_by(id: session[:order_id]) || Order.new : Order.new
+  end
+
+  def load_notifications
+    @notifications = Notification.check(current_user)
   end
 
   protected

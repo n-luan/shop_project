@@ -1,9 +1,14 @@
 <ul class="notificator">
+  <a href="#" id="notification">
+    <%= render 'notifications/counter', counter: Notification.check(current_user.id).size %>
+  </a>
   <div id="notificationContainer">
     <div id="notificationTitle">Notifications</div>
     <div id="notificationsBody" class="notifications">
-      <ul id="notificationList">
-        <%= render notifications %>
+      <ul id="notificationListUser">
+        <% if notifications.present? %>
+          <%= render notifications %>
+        <% end %>
       </ul>
     </div>
     <div id="notificationFooter"></div>

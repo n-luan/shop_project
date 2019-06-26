@@ -8,6 +8,7 @@ namespace :dummy_data do
     Rake::Task["dummy_data:create_product"].invoke
     Rake::Task["dummy_data:create_product_category"].invoke
     Rake::Task["dummy_data:create_admin"].invoke
+    Rake::Task["dummy_data:create_product_order"].invoke
 
     puts "Create dummy data successfully"
   end
@@ -82,19 +83,19 @@ namespace :dummy_data do
     end
   end
 
-  task create_order: :environment do
-    30.times do |n|
-      user = User.all.to_a.sample
-      email = User.pluck(:email).to_a.sample
-      phone = Faker::PhoneNumber.phone_number_with_country_code
-      address = Faker::Address.street_address
-      Order.create! user: user, email: email, phone: phone, address: address
-    end
-    puts "Data seed completed!"
-  end
+  # task create_order: :environment do
+  #   30.times do |n|
+  #     user = User.all.to_a.sample
+  #     email = User.pluck(:email).to_a.sample
+  #     phone = Faker::PhoneNumber.phone_number_with_country_code
+  #     address = Faker::Address.street_address
+  #     Order.create! user: user, email: email, phone: phone, address: address
+  #   end
+  #   puts "Data seed completed!"
+  # end
 
   task create_product_order: :environment do
-    30.times do |n|
+    500.times do |n|
       order = Order.all.to_a.sample
       product = Product.all.to_a.sample
       quantity = (1..10).to_a.sample

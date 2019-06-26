@@ -21,6 +21,8 @@ class Manager::OrdersController < Manager::BaseController
   def update
     @order.update status: params[:status]
     @orders = Order.all
+    @notification = Notification.create(user_id: @order.user_id, event: @order.status)
+    @notification.perform_1
   end
 
   def destroy
