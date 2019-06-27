@@ -4,12 +4,17 @@ class Manager::CategoryController < Manager::BaseController
     @categories = Category.order("created_at desc")
   end
 
-  def new; end
+  def new
+    @category = Category.new
+  end
 
   def create
     @category = Category.new category_params
-    @category.save
-    @categories = Category.order("created_at desc").page(params[:page]).per(10)
+    if @category.save
+      @categories = Category.order("created_at desc").page(params[:page]).per(10)
+    else
+      render :"new_invalid"
+    end
   end
 
   def edit
@@ -18,8 +23,11 @@ class Manager::CategoryController < Manager::BaseController
 
   def update
     @category = Category.find(params[:id])
-    @category.update_attributes category_params
-    @categories = Category.order("updated_at desc").page(params[:page]).per(10)
+    if @category.update_attributes category_params
+      @categories = Category.order("updated_at desc").page(params[:page]).per(10)
+    else
+      render :"edit_invalid"
+    end
   end
 
   def destroy

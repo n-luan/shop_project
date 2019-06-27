@@ -1,0 +1,13 @@
+<%= form_for category, url: manager_category_path, remote: true do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="modal-body">
+    <div class="form-group">
+      <%= f.label :name, "Name:", class: "col-form-label" %>
+      <%= f.text_field :name, class: "form-control", id: "recipient-name" %>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <%= button_tag "Close", class: "btn btn-secondary", "data-dismiss": "modal" %>
+    <%= f.submit "Update", class: "btn btn-primary", id: "editSubmit"%>
+  </div>
+<% end %>
