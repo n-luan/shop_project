@@ -83,17 +83,6 @@ namespace :dummy_data do
     end
   end
 
-  # task create_order: :environment do
-  #   30.times do |n|
-  #     user = User.all.to_a.sample
-  #     email = User.pluck(:email).to_a.sample
-  #     phone = Faker::PhoneNumber.phone_number_with_country_code
-  #     address = Faker::Address.street_address
-  #     Order.create! user: user, email: email, phone: phone, address: address
-  #   end
-  #   puts "Data seed completed!"
-  # end
-
   task create_product_order: :environment do
     500.times do |n|
       order = Order.all.to_a.sample

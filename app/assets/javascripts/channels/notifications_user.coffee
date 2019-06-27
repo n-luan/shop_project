@@ -1,4 +1,4 @@
-App.notifications = App.cable.subscriptions.create "NotificationsUserChannel", current_user: "user.id",
+App.notifications = App.cable.subscriptions.create "NotificationsUserChannel",
   connected: ->
     # Called when the subscription is ready for use on the server
 

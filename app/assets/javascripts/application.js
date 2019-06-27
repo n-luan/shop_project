@@ -30,24 +30,19 @@
 //= require cart_modal
 //= require main
 //= require toastr
-$(document).ready(function()
-{
-  $("#notification").click(function(event)
-  {
+$(document).on('click', "#notification", function(event){
     event.stopPropagation();
     $("#notificationContainer").fadeToggle(300);
     $("#notification_count").fadeOut("fast");
-  });
+});
+
+$(document).on("click", function()
+{
+  $("#notificationContainer").hide();
+});
 
 $(document).ready(function(){
   $('#show-password-field').click(function(){
       $('#change-password').toggle(500);
   });
-});
-
-  $(document).on("click", function()
-  {
-    $("#notificationContainer").hide();
-  });
-
 });

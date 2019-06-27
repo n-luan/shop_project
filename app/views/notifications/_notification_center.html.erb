@@ -1,16 +1,13 @@
 <ul class="notificator">
-  <a href="#" id="notification">
+  <a href="#" id="notification" style="position: relative;">
     <%= render 'notifications/counter', counter: Notification.check(current_user.id).size %>
   </a>
   <div id="notificationContainer">
-    <div id="notificationTitle">Notifications</div>
     <div id="notificationsBody" class="notifications">
-      <ul id="notificationListUser">
-        <% if notifications.present? %>
-          <%= render notifications %>
-        <% end %>
+      <div id="notificationTitle">Notifications</div>
+      <ul id="notificationListUser" style="margin-top: 60px; padding: 5px;">
+        <%= render partial: "notifications/notification", collection: notifications, as: :notification  %>
       </ul>
     </div>
-    <div id="notificationFooter"></div>
   </div>
 </ul>

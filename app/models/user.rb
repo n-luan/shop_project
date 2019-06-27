@@ -7,8 +7,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :lockable
   has_many :reviews, dependent: :destroy
-  has_many :orders
-  has_many :notifications
+  has_many :orders, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   scope :group_by_type, -> (type) {
      case type

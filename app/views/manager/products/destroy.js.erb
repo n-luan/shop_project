@@ -1,3 +1,4 @@
+$('#zero_config').DataTable().clear().destroy();
 $("#table_product").html("<%= j render "manager/products/product", products: @products %>");
-toastr["info"]("Deleted!");
 initDataTable1();
+toastr["info"]("Deleted!");

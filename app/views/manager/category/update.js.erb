@@ -1,3 +1,5 @@
+$('#category-table').DataTable().clear().destroy(false);
 $("#category-item").html("<%= j render "manager/category/item", categories: @categories %>")
 $('#exampleModal2').modal('hide');
+initDataTable();
 toastr["success"]("Update category successfully!");

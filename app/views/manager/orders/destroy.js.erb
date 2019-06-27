@@ -1,3 +1,4 @@
+$('#table-orders').DataTable().destroy(false);
 $("#table_order").html("<%= j render "manager/orders/order", orders: @orders %>");
-toastr["info"]("Deleted!");
 initDataTable2();
+toastr["info"]("Deleted!");

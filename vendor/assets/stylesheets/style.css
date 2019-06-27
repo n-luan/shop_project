@@ -5403,6 +5403,7 @@ label.star:before {
 
 .table-white th {
   background-color: #989898
+}
 
 ul.notificator {
   display: inline-block;
@@ -5426,6 +5427,9 @@ ul.notificator {
   border-radius: 3px;
   padding: 1px 3px;
   font: 16px Verdana;
+  position: absolute;
+  top: -12px;
+  right: -2px;
 }
 ul #notificationList
 {
@@ -5457,7 +5461,7 @@ ul #notificationList
   top: 70px;
   margin-left: -253px;
   width: 300px;
-  z-index: 0;
+  z-index: 10;
   display: none;
 }
 
@@ -5479,13 +5483,14 @@ ul #notificationList
 {
   font-weight: bold;
   padding: 8px;
-  font-size: 13px;
+  font-size: 15px;
   background-color: #f0f0f0;
   position: absolute;
   z-index: 1;
-  width: 284px;
+  width: 100%;
   border-bottom: 1px solid #d44e03;
   color: #d44e03;
+  text-align: center;
 }
 
 #notificationsBody
@@ -5507,5 +5512,4 @@ ul #notificationList
   padding: 8px;
   font-size: 12px;
   border-top: 1px solid #dddddd;
->>>>>>> order_list
 }

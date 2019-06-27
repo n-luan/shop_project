@@ -2,7 +2,7 @@ class Manager::OrdersController < Manager::BaseController
   before_action :load_order, except: [:index, :new, :create]
 
   def index
-    @orders = Order.all
+    @orders = Order.order("created_at desc")
     if params[:notification]
       @notification = Notification.find params[:notification]
       @notification.update opened_at: Time.zone.now
@@ -20,14 +20,14 @@ class Manager::OrdersController < Manager::BaseController
 
   def update
     @order.update status: params[:status]
-    @orders = Order.all
-    @notification = Notification.create(user_id: @order.user_id, event: @order.status)
+    @orders = Order.order("created_at desc")
+    @notification = Notification.create(user_id: @order.user_id, event: @order.status, order_id: @order.id)
     @notification.perform_1
   end
 
   def destroy
     @order.destroy
-    @orders = Order.all
+    @orders = Order.order("created_at desc")
     respond_to do |format|
       format.js
     end

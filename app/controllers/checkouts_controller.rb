@@ -8,6 +8,7 @@ class CheckoutsController < ApplicationController
     @order = current_order
     if current_order.update_attributes(params_order)
       flash[:success] = "Thank you for purchasing our product"
+      @order.notify
       session[:order_ids] = (session[:order_ids] || []).push current_order.id
       session.delete(:order_id)
       redirect_to users_order_histories_path

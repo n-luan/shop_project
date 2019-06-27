@@ -3,7 +3,7 @@ class Manager::ProductsController < Manager::BaseController
   before_action :product_categories
 
   def index
-    @products = Product.all
+    @products = Product.order("created_at DESC")
   end
 
   def new
@@ -17,7 +17,7 @@ class Manager::ProductsController < Manager::BaseController
   def create
     @product = Product.new product_params
     if @product.save
-      @products = Product.all
+      @products = Product.order("created_at DESC")
       respond_to do |format|
         format.js
       end
@@ -30,7 +30,7 @@ class Manager::ProductsController < Manager::BaseController
 
   def update
     @product.update product_params
-    @products = Product.all
+    @products = Product.order("created_at DESC")
     respond_to do |format|
       format.js
     end
@@ -39,7 +39,7 @@ class Manager::ProductsController < Manager::BaseController
 
   def destroy
     @product.destroy
-    @products = Product.all
+    @products = Product.order("created_at DESC")
     respond_to do |format|
       format.js
     end

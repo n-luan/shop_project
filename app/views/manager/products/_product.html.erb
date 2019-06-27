@@ -1,5 +1,8 @@
-<% products.reverse.each do |product| %>
+<% products.each do |product| %>
   <tr role="row" class="odd">
+    <td class="sorting_1"style="text-align: center;">
+      <%= product.id %>
+    </td>
     <td style="text-align: center;">
       <%= image_tag product.image_url(:thumb) || "product-details/thumb_anh1" %>
     </td>

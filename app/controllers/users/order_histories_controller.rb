@@ -10,6 +10,11 @@ class Users::OrderHistoriesController < ApplicationController
 
   def show
     @order = Order.find_by(id: params[:id])
+    if params[:notification]
+      @order = Order.find_by(id: params[:id])
+      @notification = Notification.find params[:notification]
+      @notification.update opened_at: Time.zone.now
+    end
   end
 
 end

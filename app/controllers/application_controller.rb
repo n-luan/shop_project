@@ -32,7 +32,9 @@ class ApplicationController < ActionController::Base
   end
 
   def load_notifications
-    @notifications = Notification.check(current_user)
+    if current_user.present?
+      @notifications = Notification.check(current_user.id)
+    end
   end
 
   protected

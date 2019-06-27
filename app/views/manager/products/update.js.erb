@@ -1,4 +1,5 @@
+$('#zero_config').DataTable().clear().destroy();
 $("#table_product").html("<%= j render "manager/products/product", products: @products %>");
 $("#myModalEdit<% @product.id %>").modal("hide");
-toastr["success"]("Updated!!");
 initDataTable1();
+toastr["success"]("Updated!!");

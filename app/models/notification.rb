@@ -1,10 +1,10 @@
 class Notification < ApplicationRecord
   belongs_to :admin, optional: true
-  belongs_to :order, optional: true, dependent: :destroy
-  belongs_to :user, optional: true, dependent: :destroy
+  belongs_to :order, optional: true
+  belongs_to :user, optional: true
 
   scope :unread,->{where opened_at: nil}
-  scope :check, -> (user_id){ where("opened_at = ? and user_id = ?", 'nil', "#{user_id}") }
+  scope :check, -> (user_id){ where opened_at: nil, user_id: user_id }
 
   def perform
     ActionCable.server.broadcast "notifications_channel",
