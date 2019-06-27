@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_categories
   helper_method :current_order
+  include SessionsHelper
 
   def after_sign_in_path_for(resource)
     case resource.class.name

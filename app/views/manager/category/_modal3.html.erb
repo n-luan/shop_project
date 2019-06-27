@@ -7,18 +7,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <%= form_for Category.new, url: manager_category_index_path, remote: true do |f| %>
-        <div class="modal-body">
-          <div class="form-group">
-            <%= f.label :name, "Name:", class: "col-form-label" %>
-            <%= f.text_field :name, class: "form-control", id: "recipient-name" %>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <%= button_tag "Close", class: "btn btn-secondary", "data-dismiss": "modal" %>
-          <%= f.submit "Create", class: "btn btn-primary"%>
-        </div>
-      <% end %>
+      <div id="modal-contain-new">
+        <%= render "form_modal_new", category: category %>
+      </div>
     </div>
   </div>
 </div>

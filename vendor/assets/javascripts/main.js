@@ -1,11 +1,10 @@
-$(document).ready(function() {
+/* Cart Currency Search toggle active */
+$(document).on("click",".header-cart .cart-btn",function(e) {
+    e.preventDefault();
+    $(this).parent().find('.shopping-cart-content').slideToggle('medium');
+})
+$(document).on('turbolinks:load', function() {
     'use strict';
-
-    /* Cart Currency Search toggle active */
-    $(document).on("click",".header-cart .cart-btn",function(e) {
-        e.preventDefault();
-        $(this).parent().find('.shopping-cart-content').slideToggle('medium');
-    })
 
     /*--
     Menu Stick
