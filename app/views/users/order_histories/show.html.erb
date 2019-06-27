@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="oder-details" style="margin: 30px; height: 100%;">
+    <table class="table table-white">
+      <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Subtotal</th>
+      </tr>
+      <% @order.product_orders.each do |product_order| %>
+        <tr>
+          <td>
+            <%= product_order.product.name %>
+          </td>
+          <td><%= product_order.quantity %></td>
+          <td><%= number_to_currency(product_order.product.sale_price) %></td>
+          <td><%= number_to_currency(product_order.quantity*product_order.product.sale_price) %></td>
+        </tr>
+      <% end %>
+    </table>
+    <hr>
+    <div>
+      <h3>
+        Total: <span style="color: red"><%= number_to_currency(@order.subtotal) %></span>
+      </h3>
+    </div>
+  </div>
+</div>
