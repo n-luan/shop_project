@@ -21,15 +21,15 @@
                 <%= product_order.product.name %>
               </td>
               <td><%= product_order.quantity %></td>
-              <td><%= product_order.product.price %></td>
-              <td><%= product_order.quantity*product_order.product.price %></td>
+              <td><%= number_to_currency(product_order.product.price) %></td>
+              <td><%= number_to_currency(product_order.quantity*product_order.product.price) %></td>
             </tr>
           <% end %>
         </table>
       </div>
       <hr>
       <div style="text-align: center; margin-bottom: 1rem; font-weight: bolder;">
-        ---------------------------<span style="color:black">Fu<span style="color:red">dink</span></span>---------------------------
+        <span style="color:black; font-weight: bolder">Fu<span style="color:red">dink</span></span>
       </div>
     </div>
 
