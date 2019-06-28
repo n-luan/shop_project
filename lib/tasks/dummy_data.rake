@@ -48,6 +48,44 @@ namespace :dummy_data do
     puts "create category successfully!"
   end
 
+IMAGES = [
+  "db/images/foody1.jpg",
+  "db/images/foody10.jpg",
+  "db/images/foody11.jpg",
+  "db/images/foody12.jpg",
+  "db/images/foody13.jpg",
+  "db/images/foody14.jpg",
+  "db/images/foody15.jpg",
+  "db/images/foody16.jpg",
+  "db/images/foody17.jpg",
+  "db/images/foody18.jpg",
+  "db/images/foody19.jpg",
+  "db/images/foody2.jpg",
+  "db/images/foody20.jpg",
+  "db/images/foody21.jpg",
+  "db/images/foody22.jpg",
+  "db/images/foody23.jpg",
+  "db/images/foody24.jpg",
+  "db/images/foody25.jpg",
+  "db/images/foody26.jpg",
+  "db/images/foody27.jpg",
+  "db/images/foody28.jpg",
+  "db/images/foody29.jpg",
+  "db/images/foody3.jpg",
+  "db/images/foody30.jpg",
+  "db/images/foody31.jpg",
+  "db/images/foody32.jpg",
+  "db/images/foody33.jpg",
+  "db/images/foody34.jpg",
+  "db/images/foody35.jpg",
+  "db/images/foody4.jpg",
+  "db/images/foody5.jpg",
+  "db/images/foody6.jpg",
+  "db/images/foody7.jpg",
+  "db/images/foody8.jpg",
+  "db/images/foody9.jpg"
+]
+
   task create_product: :environment do
     puts "Next, you should create product"
     1000.times do |n|
@@ -57,7 +95,11 @@ namespace :dummy_data do
       price = 100 + n
       sale_count= 100 + n
       created_at = (rand*40).days.ago
-      Product.create! name: name, description: description, price: price, sale_price: sale_price, sale_count: sale_count, created_at: created_at
+      product = Product.create! name: name, description: description, price: price, sale_price: sale_price, sale_count: sale_count, created_at: created_at
+
+      product.image = Pathname.new(Rails.root.join(IMAGES.sample)).open
+      product.save!
+
     end
     puts "create product successfully!"
   end
