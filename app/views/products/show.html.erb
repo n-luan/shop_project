@@ -68,14 +68,14 @@
         <a data-toggle="tab" href="#des-details3">Description</a>
       </div>
       <div class="tab-content description-review-bottom">
-        <div id="des-details1" class="tab-pane">
+        <div id="des-details3" class="tab-pane">
           <div class="product-description-wrapper">
             <p>
               <%= @product.description %>
             </p>
           </div>
         </div>
-        <div id="des-details3" class="tab-pane active">
+        <div id="des-details1" class="tab-pane active">
           <div class="rattings-wrapper">
             <div id="review-list">
               <%= render "reviews/review", reviews: @reviews %>
