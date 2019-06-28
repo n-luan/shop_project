@@ -11,7 +11,7 @@
             <!-- Thumbnail Large Image start -->
             <div class="tab-content">
               <div id="pro-1" class="tab-pane fade show active">
-                <%= image_tag "/assets/product-details/product-detalis-l4.jpg" %>
+                <%= image_tag (product.image_url(:thumb_medium) if product.image.presence) || "/assets/product-details/product-detalis-l4.jpg" %>
               </div>
               <div id="pro-2" class="tab-pane fade">
                 <%= image_tag "/assets/product-details/product-detalis-l4.jpg" %>
@@ -26,10 +26,10 @@
             <!-- Thumbnail Large Image End -->
             <!-- Thumbnail Image End -->
             <div class="product-thumbnail">
-              <div class="thumb-menu owl-carousel nav nav-style" role="tablist">
-                <a class="active" data-toggle="tab" href="#pro-1"><%= image_tag "/assets/product-details/product-detalis-s4.jpg" %></a>
-                <a data-toggle="tab" href="#pro-2"><%= image_tag "/assets/product-details/product-detalis-s4.jpg" %></a>
-                <a data-toggle="tab" href="#pro-3"><%= image_tag "/assets/product-details/product-detalis-s4.jpg" %></a>
+              <div class="thumb-menu owl-carousel nav nav-style owl-carousel" role="tablist">
+                <a class="active" data-toggle="tab" href="#pro-1" style="padding: 0px 2px 0px 0px"><%= image_tag product.image_url(:thumb).presence || "/assets/product-details/product-detalis-s4.jpg" %></a>
+                <a data-toggle="tab" href="#pro-2" style="padding: 0px 2px 0px 0px"><%= image_tag "/assets/product-details/product-detalis-s4.jpg" %></a>
+                <a data-toggle="tab" href="#pro-3" style="padding: 0px 2px 0px 0px"><%= image_tag "/assets/product-details/product-detalis-s4.jpg" %></a>
                 <a data-toggle="tab" href="#pro-4"><%= image_tag "/assets/product-details/product-detalis-s4.jpg" %></a>
               </div>
             </div>

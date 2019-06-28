@@ -2,7 +2,7 @@
   <tr>
     <td class="product-thumbnail">
       <%= link_to product_order.product do %>
-        <%= image_tag (product_order.product.image_url if product_order.product.image.presence) || "/assets/cart/cart-1.jpg" %>
+        <%= image_tag (product_order.product.image_url(:thumb) if product_order.product.image.presence) || "/assets/cart/cart-1.jpg" %>
       <% end %>
     </td>
     <td class="product-name"><a href="#"><%= product_order.product.name %> </a></td>

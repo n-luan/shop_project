@@ -5,6 +5,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [555, 555]
   end
 
+  version :thumb_medium do
+    process resize_to_fill: [368, 368]
+  end
+
   version :thumb_nail,from_version: :thumb_large  do
     process resize_to_fill: [210, 210]
   end
