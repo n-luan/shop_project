@@ -1,5 +1,6 @@
 class CheckoutsController < ApplicationController
   before_action :valid_order, only: [:edit, :update]
+
   def edit
     @order = current_order
   end
@@ -13,7 +14,7 @@ class CheckoutsController < ApplicationController
       session.delete(:order_id)
       redirect_to users_order_histories_path
     else
-      flash[:danger] = "Error! please check your cart"
+      render :edit
     end
   end
   private

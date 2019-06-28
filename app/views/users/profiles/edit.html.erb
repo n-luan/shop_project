@@ -71,7 +71,7 @@
             <label for="userProfilePicture" class="text-center w-100 mb-0">Profile Picture</label>
             <div class="edit-user-details__avatar m-auto">
               <%= image_tag (@profile.avatar.url if
-              @profile.avatar.url.presence) || "/assets/profile/default.jpg",
+              @profile.avatar.url.presence) || "/assets/profile/avatar.svg",
                :class => "avatar_edit" %>
             </div>
             <%= f.file_field :avatar %>
