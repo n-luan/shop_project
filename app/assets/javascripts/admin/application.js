@@ -20,7 +20,7 @@
 //= require admin/light-bootstrap-dashboard
 //= require admin/demo
 //= require cable
-//= require_directory ../channels
+//= require admin/notifications.coffee
 //= require admin/bootstrap-datepicker
 //= require admin/nouislider.min
 //= require admin/jquery.dataTables.min
@@ -31,35 +31,16 @@
 //= require toastr
 
 $(document).ready(function() {
-   initDataTable();
-   initDataTable1();
-   initDataTable2();
-} );
-
-function initDataTable(){
-  $('#category-table').DataTable({
-   "order": []
-  });
-}
-
-function initDataTable1(){
-  $('#zero_config').DataTable()
-}
-
-function initDataTable2(){
-  $('#table-orders').DataTable()
-}
-
-$(document).ready(function() {
   $('#category-table').DataTable();
-} );
+});
 
 $(document).ready(function() {
   $('#zero_config').DataTable()
-} );
+});
+
 $(document).ready(function() {
   $('#table-orders').DataTable();
-} );
+});
 
 $(document).on("change", ".sel", function(e){
   var $self = $(this);
@@ -86,4 +67,31 @@ $(document).on("change", ".sel", function(e){
     toastr['warning']('Oops! Order NOT change');
     $(this).val(previous);
   }
+});
+
+function initDataTable(){
+  $('#category-table').DataTable({
+   destroy: true,
+   order: []
+  });
+}
+
+function initDataTable1(){
+  $('#zero_config').DataTable({
+    destroy: true,
+    order: []
+  });
+}
+
+function initDataTable2(){
+  $('#table-orders').DataTable({
+    destroy: true,
+    order: []
+  });
+}
+
+$(document).ready(function() {
+   initDataTable();
+   initDataTable1();
+   initDataTable2();
 });

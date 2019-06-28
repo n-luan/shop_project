@@ -1,2 +1,4 @@
+$('#category-table').DataTable().clear().destroy(false);
 $("#category-item").html("<%= j render "manager/category/item", categories: @categories %>")
+initDataTable();
 toastr["success"]("Delete successfully!")

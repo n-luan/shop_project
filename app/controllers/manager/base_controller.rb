@@ -4,6 +4,6 @@ class Manager::BaseController < ActionController::Base
   before_action :set_notification
 
   def set_notification
-    @notifications = Notification.unread
+    @notifications = Notification.unread.limit(10)
   end
 end

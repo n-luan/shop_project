@@ -8,7 +8,7 @@
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
   </head>
   <body>
-    <%= render "layouts/header", categories: @categories %>
+    <%= render "layouts/header", categories: @categories, notifications: @notifications%>
     <script type="text/javascript">
       <% flash.each do |f| %>
       <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>

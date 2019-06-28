@@ -11,7 +11,7 @@ class Manager::CategoryController < Manager::BaseController
   def create
     @category = Category.new category_params
     if @category.save
-      @categories = Category.order("created_at desc").page(params[:page]).per(10)
+      @categories = Category.order("created_at desc")
     else
       render :"new_invalid"
     end
@@ -24,7 +24,7 @@ class Manager::CategoryController < Manager::BaseController
   def update
     @category = Category.find(params[:id])
     if @category.update_attributes category_params
-      @categories = Category.order("updated_at desc").page(params[:page]).per(10)
+      @categories = Category.order("created_at desc")
     else
       render :"edit_invalid"
     end
@@ -33,7 +33,7 @@ class Manager::CategoryController < Manager::BaseController
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
-    @categories = Category.order("updated_at desc").page(params[:page]).per(10)
+    @categories = Category.order("created_at desc")
   end
 
   private
@@ -41,5 +41,4 @@ class Manager::CategoryController < Manager::BaseController
   def category_params
     params.require(:category).permit :name
   end
-
 end

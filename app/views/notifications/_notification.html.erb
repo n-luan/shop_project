@@ -1,4 +1,5 @@
 <li>
-  <%= notification.event %>
-  <span> <%= notification.created_at.strftime("%d %b. %Y") %></span>
+  Order Code <b><strong>
+    <%= link_to "#{notification.order_id}", users_order_history_path(notification.order_id, notification: notification.id) %></strong> was <%= notification.event %></b><br>
+  <span><small>At <%= notification.created_at.strftime("%d %b. %Y") %></small></span>
 </li>

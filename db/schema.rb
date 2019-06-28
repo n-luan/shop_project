@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_24_041110) do
+ActiveRecord::Schema.define(version: 2019_06_26_020859) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(version: 2019_06_24_041110) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "order_id"
+    t.integer "user_id"
+    t.index ["opened_at"], name: "index_notifications_on_opened_at"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

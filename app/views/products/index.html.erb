@@ -7,7 +7,7 @@
             <div class="product-wrapper mb-25">
               <div class="product-img">
                 <%= link_to result do %>
-                  <%= image_tag result.image.presence || "product-details/product-detalis-s4" %>
+                  <%= image_tag result.image_url.presence || "product-details/product-detalis-s4" %>
                 <% end %>
                 <div class="product-action">
                   <div class="pro-action-left">
