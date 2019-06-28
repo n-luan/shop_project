@@ -1,10 +1,4 @@
 <header class="header-area">
-  <div class="header-top black-bg">
-    <div class="container">
-      <div class="row">
-      </div>
-    </div>
-  </div>
   <div class="header-middle">
     <div class="container">
       <div class="row">
@@ -22,7 +16,7 @@
         </div>
         <div class="col-lg-5 col-md-4 col-12 col-sm-4">
           <div class="header-middle-right f-right">
-            <div class="header-login">
+            <div class="header-login" style="margin-right: 50px;">
               <% if user_signed_in? %>
                 <%= link_to destroy_user_session_path, method: :delete do %>
                   <div class="header-icon-style">
@@ -69,7 +63,6 @@
               <ul>
                 <li class="top-hover"><%= link_to "home", root_url %>
                 </li>
-                <li><a href="about-us.html">about</a></li>
                 <li class="mega-menu-position top-hover"><a href="">Category<i class="ion-chevron-down"></i></a>
                   <ul class="mega-menu">
                     <% categories.each do |category| %>
@@ -80,6 +73,15 @@
                             </li>
                         </ul>
                       </li>
+                    <% end %>
+                  </ul>
+                </li>
+                <li class="top-hover">
+                  <a href="">Setting<i class="ion-chevron-down"></i></a>
+                  <ul class="submenu">
+                    <li><%= link_to "Order history", users_order_histories_path %></li>
+                    <% if user_signed_in? %>
+                      <li><%= link_to "My account", users_profile_path(current_user) %></li>
                     <% end %>
                   </ul>
                 </li>

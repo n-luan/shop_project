@@ -1819,7 +1819,7 @@ Background variation set
 .main-menu ul li {
   display: inline-block;
   list-style: outside none none;
-  padding-right: 65px;
+  padding-right: 55px;
   position: relative;
 }
 .main-menu nav > ul > li:last-child {
@@ -2430,7 +2430,7 @@ Background variation set
 .footer-time li:last-child {
   padding: 0 0 0px;
 }
-.footer-content ul li a {
+.footer-content ul li span {
   color: #fff;
 }
 .footer-content ul li a:hover,
